@@ -1,0 +1,22 @@
+{
+  "_comment": "시안용 임시 사진 매핑. key = photos/ 아래 대상 폴더, 값 = 카테고리별 [_raw 경로]. 순서대로 01, 02... 번호가 붙는다.",
+  "rooms/nolmeong":  { "cover": ["room1/29"], "exterior": ["room1/1","room1/2","room1/24"], "bedroom": ["room1/5","room1/6","room1/12","room1/13","room1/19"], "bath": ["room1/15","room1/17","room1/16"], "kitchen": ["room1/3","room1/20","room1/23","room1/21"], "deck": ["room1/28","room1/7","room1/10","room1/26"], "view": ["room1/8","room1/11","room1/9"] },
+  "rooms/mulmeong":  { "cover": ["room1/30"] },
+  "rooms/swimeong":  { "cover": ["view/31"] },
+  "rooms/bulmeong":  { "cover": ["room1_1/14"], "exterior": ["room1_1/1","room1_1/7"], "bedroom": ["room1_1/3","room1_1/2","room1_1/8","room1_1/9"], "bath": ["room1_1/12","room1_1/13"], "kitchen": ["room1_1/10","room1_1/11"], "deck": ["room1_1/5","room1_1/4"], "view": ["room1_1/6"] },
+  "rooms/suaegi":    { "cover": ["room2/22"], "exterior": ["room2/2","room2/24"], "bedroom": ["room2/6","room2/5","room2/7","room2/8","room2/21"], "bath": ["room2/13","room2/15","room2/16","room2/17"], "kitchen": ["room2/9","room2/10","room2/11"], "deck": ["room2/1","room2/23"], "view": ["room2/4","room2/3"] },
+  "rooms/gomsaegi":  { "cover": ["room2/24"] },
+  "rooms/jedori":    { "cover": ["main/17"] },
+  "rooms/taesani":   { "cover": ["room2/2"] },
+  "rooms/chunsami":  { "cover": ["room2/1"] },
+  "rooms/bada":      { "cover": ["room3/1"], "exterior": ["room3/2"], "bedroom": ["room3/10","room3/11","room3/8"], "bath": ["room3/14","room3/13"], "kitchen": ["room3/5","room3/7","room3/6"], "view": ["room3/4","room3/3"] },
+  "rooms/noeul":     { "cover": ["room4/2"], "exterior": ["room4/1"], "bedroom": ["room4/8","room4/13","room4/6"], "bath": ["room4/11","room4/10"], "kitchen": ["room4/4","room4/5"], "view": ["room4/14","room4/15"] },
+  "rooms/gorae":     { "cover": ["room5/2"], "exterior": ["room5/1"], "bedroom": ["room5/3","room5/5","room5/14","room5/13"], "bath": ["room5/16"], "kitchen": ["room5/17","room5/18"], "view": ["room5/8","room5/10"] },
+  "rooms/haean":     { "cover": ["room6/1"], "exterior": ["room6/20"], "bedroom": ["room6/6","room6/9","room6/16","room6/15"], "bath": ["room6/18","room6/19"], "kitchen": ["room6/10","room6/12"], "view": ["room6/14","room6/4"] },
+  "rooms/baram":     { "cover": ["room7/1"], "exterior": ["room7/4"], "bedroom": ["room7/5","room7/9","room7/6"], "bath": ["room7/14"], "kitchen": ["room7/12","room7/15"], "view": ["room7/13","room7/3"] },
+  "site/hero":       { "hero": ["view/8","main/4","view/9","view/31"] },
+  "site/dolphin":    { "dolphin": ["special1/2","main/3","view/7","view/3"] },
+  "site/night":      { "night": ["main/19","main/17","view/12","main/15"] },
+  "site/facility":   { "bbq": ["special_preview/4"], "picnic": ["main/9"], "spa": ["view/20"], "signage": ["view/13"] },
+  "site/tier":       { "premium": ["room1/29"], "airstream": ["room2/22"], "value": ["room4/14"] }
+}

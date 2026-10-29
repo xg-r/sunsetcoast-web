@@ -1,0 +1,15 @@
+node_modules/
+design/_raw/
+design/_sheets/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+# 빌드 때 생성되는 이미지와 목록
+public/img/
+public/og/
+src/generated/
+.cache/
+.env.local
+# 빌드 전에 백엔드에서 받은 사이트 데이터 (npm run data)
+src/generated/site-data.json

@@ -1,0 +1,186 @@
+@import 'tailwindcss';
+/* 본문 서체: Pretendard 가변 폰트를 유니코드 범위별로 나눈 파일. 화면에 쓰인 글자 범위의 파일만 내려받는다 */
+@import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
+
+/*
+  "노을 필름": 크림 배경, 피치 코랄 포인트, 살구·바다 회청 보조. 인스타에서 넘어온 30대 애견동반 여성 기준.
+  글자색은 모두 WCAG AA(4.5:1) 이상. 피치(--peach)는 면(버튼·배경)에만 쓰고, 글자 포인트는 --coral.
+  다크 모드는 해 진 뒤의 따뜻한 밤. 컴포넌트는 아래 의미 토큰(bg, ink, coral …)만 쓴다.
+*/
+:root {
+  --bg: #fbf6f0;
+  --surface: #fffdf9;
+  --band: #f6e7da;
+  --ink: #3b302a;
+  --mute: #72625a;
+  --line: #ecdfd2;
+  --coral: #a64e30;
+  --peach: #e8896b;
+  --apricot: #f3d9c6;
+  --btn: #e8896b;
+  --on-btn: #2a1e18;
+  --amber: #b06a1c;
+  --sea: #52707e;
+  --grain-opacity: 0.16;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1917;
+    --surface: #2a2320;
+    --band: #262019;
+    --ink: #f3e9df;
+    --mute: #b5a598;
+    --line: #3a302b;
+    --coral: #f2a387;
+    --peach: #e8896b;
+    --apricot: #4a352c;
+    --btn: #e8896b;
+    --on-btn: #2a1e18;
+    --amber: #f0b46a;
+    --sea: #9db8c5;
+    --grain-opacity: 0.1;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-band: var(--band);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-line: var(--line);
+  --color-coral: var(--coral);
+  --color-peach: var(--peach);
+  --color-apricot: var(--apricot);
+  --color-btn: var(--btn);
+  --color-on-btn: var(--on-btn);
+  --color-amber: var(--amber);
+  --color-sea: var(--sea);
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-display: var(--font-myeongjo), 'Nanum Myeongjo', serif;
+  /* 영문 손글씨. 한글 글자가 없어서 한글은 본문 서체로 내려간다 → 영문 짧은 문구에만 쓴다 */
+  --font-script: var(--font-dancing), cursive;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 4rem;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: max(1.25rem, env(safe-area-inset-left, 0px));
+  }
+  /* 제목 위 영문 손글씨 한 줄 (예: Our rooms) */
+  .eyebrow {
+    display: block;
+    font-family: var(--font-script);
+    font-size: 1.375rem;
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--coral);
+  }
+  /* 작은 한글 라벨 (소식 종류·날짜, 시즌 등) */
+  .label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--coral);
+  }
+  .h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+  }
+  @media (min-width: 768px) {
+    .h2 { font-size: 2rem; }
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    min-height: 2.875rem;
+    padding-inline: 1.25rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    transition: transform 0.15s, background-color 0.15s;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--btn); color: var(--on-btn); box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--peach) 70%, transparent); }
+  .btn-primary:hover { background: color-mix(in srgb, var(--btn) 88%, #fff); }
+  .btn-ghost { border-color: var(--line); color: var(--ink); background: var(--surface); }
+  .btn-ghost:hover { border-color: var(--peach); }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.1875rem 0.6875rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    white-space: nowrap;
+  }
+  .chip-key { background: var(--apricot); border-color: var(--apricot); color: var(--ink); font-weight: 600; }
+  .card { border-radius: 1.5rem; background: var(--surface); border: 1px solid var(--line); }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .tbd { color: var(--mute); font-weight: 500; }
+
+  /* 필름 느낌: 사진 위에 아주 옅은 그레인과 따뜻한 톤을 얹는다 (Photo 컴포넌트가 붙인다) */
+  .film {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .film img { filter: saturate(1.04) sepia(0.06) contrast(0.98); }
+  .film::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    animation: fade-in 0.7s ease both;
+  }
+  @keyframes fade-in {
+    from { opacity: 0.35; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+}

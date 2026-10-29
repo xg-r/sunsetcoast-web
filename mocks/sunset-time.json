@@ -1,0 +1,5 @@
+{
+  "_comment": "GET /sunset-time 목 데이터. 날짜(date)는 목 서버가 요청 시점의 한국 날짜로 채운다. 시각은 고정값.",
+  "today": { "sunset": "18:10" },
+  "tomorrow": { "sunset": "18:10" }
+}

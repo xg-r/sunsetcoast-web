@@ -1,0 +1,2373 @@
+{
+  "settings": {
+    "name": "선셋코스트 카라반 & 캠핑장",
+    "nameEn": "SUNSET COAST Caravan & Camping",
+    "siteUrl": "https://www.sunsetcoast.kr",
+    "address": "제주특별자치도 서귀포시 대정읍 노을해안로 232",
+    "beachAddress": "노을해안로 216-6",
+    "geo": {
+      "lat": 33.2460762,
+      "lng": 126.2048939
+    },
+    "owner": "김태현",
+    "businessNo": "278-27-01574",
+    "phone": "010-4741-7064",
+    "phoneHours": "오전 9시~오후 9시",
+    "bankAccount": {
+      "bank": "IBK기업은행",
+      "number": "239-145391-04-017",
+      "holder": "선셋코스트 카라반&캠핑장"
+    },
+    "instagram": "sunsetcoast_jeju",
+    "naverPlaceId": "1203944529",
+    "instagramPhotos": [
+      "site/night/night-01",
+      "site/hero/hero-03",
+      "site/dolphin/dolphin-03",
+      "site/facility/picnic-01",
+      "site/night/night-03",
+      "site/hero/hero-04"
+    ],
+    "partner": {
+      "name": "스테이디앤디 풀빌라",
+      "url": null
+    },
+    "bookingPlatforms": [
+      {
+        "key": "ddnayo",
+        "label": "예약하기",
+        "url": "http://www.ddnayo.com/RsvSys/?id_hotel=16384"
+      },
+      {
+        "key": "naver",
+        "label": "네이버 예약",
+        "url": ""
+      }
+    ],
+    "heroImage": "site/hero/hero-01",
+    "heroCopy": "노을 지는 바다 앞,\n우리 강아지와 하룻밤.",
+    "seo": {
+      "title": "선셋코스트 | 제주 애견동반 오션뷰 카라반 캠핑장",
+      "description": "제주도 서귀포 바다 앞 애견동반 카라반 캠핑장. 오션뷰 카라반 14동 중 6동은 반려견과 함께 묵을 수 있고, 모든 카라반에 개별 화장실과 바베큐 데크가 있어요. 노을 명소, 돌고래 해변까지 걸어서 1분.",
+      "naverVerification": "7de1f85df29dacd5552bb2c5dcf187e860a30240"
+    },
+    "analyticsId": null,
+    "seasonCards": []
+  },
+  "tiers": [
+    {
+      "key": "premium",
+      "name": "스페이스카라반",
+      "intro": "통창 너머 바다를 보는 우주선 모양 카라반",
+      "coverImage": "site/tier/premium-01",
+      "sortOrder": 1
+    },
+    {
+      "key": "airstream",
+      "name": "에어스트림",
+      "intro": "욕조에 몸을 담그는 은빛 에어스트림",
+      "coverImage": "site/tier/airstream-01",
+      "sortOrder": 2
+    },
+    {
+      "key": "value",
+      "name": "스탠다드",
+      "intro": "꼭 필요한 것만 갖춘 오션뷰 카라반",
+      "coverImage": "site/tier/value-01",
+      "sortOrder": 3
+    }
+  ],
+  "rooms": [
+    {
+      "slug": "nolmeong",
+      "name": "놀멍",
+      "tierKey": "premium",
+      "copy": "통창 앞 바다를 보며 놀멍, 반려견과 함께",
+      "nameStory": "놀멍은 제주어로 \"놀면서\"라는 뜻이에요. 늦잠을 자고 일어나 통창 너머 바다를 보다가, 반려견과 해안도로를 한 바퀴 걸어요. 오후엔 데크에서 놀다가 해가 지면 고기를 구워요.",
+      "intro": null,
+      "type": "오션뷰 스페이스카라반",
+      "sizeMm": {
+        "length": 11500,
+        "width": 3300
+      },
+      "sizeText": null,
+      "beds": "퀸 1",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": true,
+      "shower": null,
+      "bathtub": null,
+      "amenityKeys": [
+        "deck",
+        "aircon",
+        "tv",
+        "vanity",
+        "table",
+        "fridge",
+        "microwave",
+        "kettle",
+        "induction",
+        "cookware",
+        "dryer",
+        "toiletries",
+        "towels",
+        "moodLight",
+        "speaker",
+        "outdoorTable"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 1,
+      "images": [
+        {
+          "key": "rooms/nolmeong/cover-01",
+          "category": "cover",
+          "caption": "해 질 녘의 스페이스카라반",
+          "alt": "해 질 녘의 스페이스카라반",
+          "sortOrder": 1
+        },
+        {
+          "key": "rooms/nolmeong/bath-01",
+          "category": "bath",
+          "caption": "객실 안 샤워실과 화장실",
+          "alt": "객실 안 샤워실과 화장실",
+          "sortOrder": 101
+        },
+        {
+          "key": "rooms/nolmeong/bath-02",
+          "category": "bath",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 102
+        },
+        {
+          "key": "rooms/nolmeong/bath-03",
+          "category": "bath",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 103
+        },
+        {
+          "key": "rooms/nolmeong/bedroom-01",
+          "category": "bedroom",
+          "caption": "통창 너머 바다가 보이는 침대",
+          "alt": "통창 너머 바다가 보이는 침대",
+          "sortOrder": 201
+        },
+        {
+          "key": "rooms/nolmeong/bedroom-02",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 202
+        },
+        {
+          "key": "rooms/nolmeong/bedroom-03",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 203
+        },
+        {
+          "key": "rooms/nolmeong/bedroom-04",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 204
+        },
+        {
+          "key": "rooms/nolmeong/bedroom-05",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 205
+        },
+        {
+          "key": "rooms/nolmeong/kitchen-01",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 301
+        },
+        {
+          "key": "rooms/nolmeong/kitchen-02",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 302
+        },
+        {
+          "key": "rooms/nolmeong/kitchen-03",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 303
+        },
+        {
+          "key": "rooms/nolmeong/kitchen-04",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 304
+        },
+        {
+          "key": "rooms/nolmeong/deck-01",
+          "category": "deck",
+          "caption": "데크 위 야외 스파",
+          "alt": "데크 위 야외 스파",
+          "sortOrder": 401
+        },
+        {
+          "key": "rooms/nolmeong/deck-02",
+          "category": "deck",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 402
+        },
+        {
+          "key": "rooms/nolmeong/deck-03",
+          "category": "deck",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 403
+        },
+        {
+          "key": "rooms/nolmeong/deck-04",
+          "category": "deck",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 404
+        },
+        {
+          "key": "rooms/nolmeong/view-01",
+          "category": "view",
+          "caption": "창밖의 바다",
+          "alt": "창밖의 바다",
+          "sortOrder": 501
+        },
+        {
+          "key": "rooms/nolmeong/view-02",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 502
+        },
+        {
+          "key": "rooms/nolmeong/view-03",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 503
+        },
+        {
+          "key": "rooms/nolmeong/exterior-01",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 601
+        },
+        {
+          "key": "rooms/nolmeong/exterior-02",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 602
+        },
+        {
+          "key": "rooms/nolmeong/exterior-03",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 603
+        }
+      ]
+    },
+    {
+      "slug": "mulmeong",
+      "name": "물멍",
+      "tierKey": "premium",
+      "copy": "바다를 바라보며 물멍",
+      "nameStory": "물멍은 물을 보며 멍하니 있는 시간이에요. 침대에 기대 앉으면 창밖이 온통 바다라, 파도가 밀려왔다 빠지는 걸 하염없이 보게 돼요. 운이 좋은 날엔 그 바다 위로 돌고래가 지나가요.",
+      "intro": null,
+      "type": "오션뷰 스페이스카라반",
+      "sizeMm": {
+        "length": 11500,
+        "width": 3300
+      },
+      "sizeText": null,
+      "beds": "퀸 1",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": false,
+      "shower": null,
+      "bathtub": null,
+      "amenityKeys": [
+        "deck",
+        "aircon",
+        "tv",
+        "vanity",
+        "table",
+        "fridge",
+        "microwave",
+        "kettle",
+        "induction",
+        "cookware",
+        "dryer",
+        "toiletries",
+        "towels",
+        "moodLight",
+        "speaker",
+        "outdoorTable"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 2,
+      "images": [
+        {
+          "key": "rooms/mulmeong/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "slug": "swimeong",
+      "name": "쉬멍",
+      "tierKey": "premium",
+      "copy": "아무것도 하지 않고 쉬멍",
+      "nameStory": "쉬멍은 제주어로 \"쉬면서\"라는 뜻이에요. 휴대폰은 내려놓고, 해야 할 일 없이 하루를 비워 두세요. 낮잠과 노을과 바베큐면 충분한 하루예요.",
+      "intro": null,
+      "type": "오션뷰 스페이스카라반",
+      "sizeMm": {
+        "length": 11500,
+        "width": 3300
+      },
+      "sizeText": null,
+      "beds": "퀸 1",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": false,
+      "shower": null,
+      "bathtub": null,
+      "amenityKeys": [
+        "deck",
+        "aircon",
+        "tv",
+        "vanity",
+        "table",
+        "fridge",
+        "microwave",
+        "kettle",
+        "induction",
+        "cookware",
+        "dryer",
+        "toiletries",
+        "towels",
+        "moodLight",
+        "speaker",
+        "outdoorTable"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 3,
+      "images": [
+        {
+          "key": "rooms/swimeong/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "slug": "bulmeong",
+      "name": "불멍",
+      "tierKey": "premium",
+      "copy": "둘이서 보내는 작은 우주선",
+      "nameStory": "불멍은 불을 보며 멍하니 있는 시간이에요. 둘만 묵는 작은 우주선에서, 해 질 무렵 데크에 숯불을 피우고 노을이 다 질 때까지 이야기를 나눠요.",
+      "intro": null,
+      "type": "오션뷰 스페이스카라반",
+      "sizeMm": {
+        "length": 8500,
+        "width": 3300
+      },
+      "sizeText": null,
+      "beds": "퀸 1",
+      "guestsBase": 2,
+      "guestsMax": 2,
+      "view": "오션뷰",
+      "petsAllowed": false,
+      "shower": null,
+      "bathtub": null,
+      "amenityKeys": [
+        "deck",
+        "aircon",
+        "tv",
+        "vanity",
+        "table",
+        "fridge",
+        "microwave",
+        "kettle",
+        "induction",
+        "cookware",
+        "dryer",
+        "toiletries",
+        "towels",
+        "moodLight",
+        "speaker",
+        "outdoorTable"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 4,
+      "images": [
+        {
+          "key": "rooms/bulmeong/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        },
+        {
+          "key": "rooms/bulmeong/bath-01",
+          "category": "bath",
+          "caption": "객실 안 샤워실과 화장실",
+          "alt": "객실 안 샤워실과 화장실",
+          "sortOrder": 101
+        },
+        {
+          "key": "rooms/bulmeong/bath-02",
+          "category": "bath",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 102
+        },
+        {
+          "key": "rooms/bulmeong/bedroom-01",
+          "category": "bedroom",
+          "caption": "천창이 있는 침실",
+          "alt": "천창이 있는 침실",
+          "sortOrder": 201
+        },
+        {
+          "key": "rooms/bulmeong/bedroom-02",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 202
+        },
+        {
+          "key": "rooms/bulmeong/bedroom-03",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 203
+        },
+        {
+          "key": "rooms/bulmeong/bedroom-04",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 204
+        },
+        {
+          "key": "rooms/bulmeong/kitchen-01",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 301
+        },
+        {
+          "key": "rooms/bulmeong/kitchen-02",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 302
+        },
+        {
+          "key": "rooms/bulmeong/deck-01",
+          "category": "deck",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 401
+        },
+        {
+          "key": "rooms/bulmeong/deck-02",
+          "category": "deck",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 402
+        },
+        {
+          "key": "rooms/bulmeong/view-01",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 501
+        },
+        {
+          "key": "rooms/bulmeong/exterior-01",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 601
+        },
+        {
+          "key": "rooms/bulmeong/exterior-02",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 602
+        }
+      ]
+    },
+    {
+      "slug": "suaegi",
+      "name": "수애기",
+      "tierKey": "airstream",
+      "copy": "욕조가 있는 은빛 에어스트림",
+      "nameStory": "수애기는 제주 서남부 바다에 사는 돌고래의 이름이에요. 영락리 앞바다가 바로 그 바다예요. 낮에는 해변까지 걸어가 돌고래를 기다리고, 밤에는 따뜻한 욕조에 몸을 담가요.",
+      "intro": "1931년부터 이어진 에어스트림을 새로 리모델링했어요. 욕조와 스파시설, 에어컨과 난방을 갖췄어요.",
+      "type": "에어스트림",
+      "sizeMm": null,
+      "sizeText": "약 26㎡ (8평)",
+      "beds": "퀸 1 · 침대 겸용 의자 2",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": false,
+      "shower": true,
+      "bathtub": true,
+      "amenityKeys": [
+        "spa",
+        "deck",
+        "aircon",
+        "heating",
+        "fridge",
+        "microwave",
+        "cookware",
+        "table",
+        "extinguisher",
+        "fireAlarm"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 5,
+      "images": [
+        {
+          "key": "rooms/suaegi/cover-01",
+          "category": "cover",
+          "caption": "은빛 에어스트림과 개별 데크",
+          "alt": "은빛 에어스트림과 개별 데크",
+          "sortOrder": 1
+        },
+        {
+          "key": "rooms/suaegi/bath-01",
+          "category": "bath",
+          "caption": "창 아래 놓인 둥근 욕조",
+          "alt": "창 아래 놓인 둥근 욕조",
+          "sortOrder": 101
+        },
+        {
+          "key": "rooms/suaegi/bath-02",
+          "category": "bath",
+          "caption": "욕조와 핸드 샤워",
+          "alt": "욕조와 핸드 샤워",
+          "sortOrder": 102
+        },
+        {
+          "key": "rooms/suaegi/bath-03",
+          "category": "bath",
+          "caption": "세면대",
+          "alt": "세면대",
+          "sortOrder": 103
+        },
+        {
+          "key": "rooms/suaegi/bath-04",
+          "category": "bath",
+          "caption": "객실 안 화장실과 세면대",
+          "alt": "객실 안 화장실과 세면대",
+          "sortOrder": 104
+        },
+        {
+          "key": "rooms/suaegi/bedroom-01",
+          "category": "bedroom",
+          "caption": "창으로 둘러싸인 침대",
+          "alt": "창으로 둘러싸인 침대",
+          "sortOrder": 201
+        },
+        {
+          "key": "rooms/suaegi/bedroom-02",
+          "category": "bedroom",
+          "caption": "침실에서 본 실내",
+          "alt": "침실에서 본 실내",
+          "sortOrder": 202
+        },
+        {
+          "key": "rooms/suaegi/bedroom-03",
+          "category": "bedroom",
+          "caption": "에어컨이 있는 침실",
+          "alt": "에어컨이 있는 침실",
+          "sortOrder": 203
+        },
+        {
+          "key": "rooms/suaegi/bedroom-04",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 204
+        },
+        {
+          "key": "rooms/suaegi/bedroom-05",
+          "category": "bedroom",
+          "caption": "에어스트림 실내 전체",
+          "alt": "에어스트림 실내 전체",
+          "sortOrder": 205
+        },
+        {
+          "key": "rooms/suaegi/kitchen-01",
+          "category": "kitchen",
+          "caption": "주방과 식탁",
+          "alt": "주방과 식탁",
+          "sortOrder": 301
+        },
+        {
+          "key": "rooms/suaegi/kitchen-02",
+          "category": "kitchen",
+          "caption": "냉장고와 개수대",
+          "alt": "냉장고와 개수대",
+          "sortOrder": 302
+        },
+        {
+          "key": "rooms/suaegi/kitchen-03",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 303
+        },
+        {
+          "key": "rooms/suaegi/deck-01",
+          "category": "deck",
+          "caption": "창밖으로 보이는 개별 데크",
+          "alt": "창밖으로 보이는 개별 데크",
+          "sortOrder": 401
+        },
+        {
+          "key": "rooms/suaegi/deck-02",
+          "category": "deck",
+          "caption": "파라솔 아래 데크 의자",
+          "alt": "파라솔 아래 데크 의자",
+          "sortOrder": 402
+        },
+        {
+          "key": "rooms/suaegi/view-01",
+          "category": "view",
+          "caption": "캠핑장 너머로 지는 해",
+          "alt": "캠핑장 너머로 지는 해",
+          "sortOrder": 501
+        },
+        {
+          "key": "rooms/suaegi/view-02",
+          "category": "view",
+          "caption": "앞바다의 남방큰돌고래 (드론 촬영)",
+          "alt": "앞바다의 남방큰돌고래 (드론 촬영)",
+          "sortOrder": 502
+        },
+        {
+          "key": "rooms/suaegi/exterior-01",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 601
+        },
+        {
+          "key": "rooms/suaegi/exterior-02",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 602
+        }
+      ]
+    },
+    {
+      "slug": "gomsaegi",
+      "name": "곰새기",
+      "tierKey": "airstream",
+      "copy": "은빛 에어스트림에서 보내는 하룻밤",
+      "nameStory": "곰새기는 제주 동북부 바다에 사는 돌고래의 이름이에요. 섬 반대편 바다의 이름을 빌려, 제주 바다 전체를 한 바퀴 도는 마음으로 지었어요. 둥근 은빛 차체 안에서 파도 소리를 들으며 잠들어요.",
+      "intro": "1931년부터 이어진 에어스트림을 새로 리모델링했어요. 욕조와 스파시설, 에어컨과 난방을 갖췄어요.",
+      "type": "에어스트림",
+      "sizeMm": null,
+      "sizeText": "약 26㎡ (8평)",
+      "beds": "퀸 1 · 침대 겸용 의자 2",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": false,
+      "shower": true,
+      "bathtub": true,
+      "amenityKeys": [
+        "spa",
+        "deck",
+        "aircon",
+        "heating",
+        "fridge",
+        "microwave",
+        "cookware",
+        "table",
+        "extinguisher",
+        "fireAlarm"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 6,
+      "images": [
+        {
+          "key": "rooms/gomsaegi/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "slug": "jedori",
+      "name": "제돌이",
+      "tierKey": "airstream",
+      "copy": "반려견과 함께 묵는 에어스트림",
+      "nameStory": "제돌이는 서울대공원에서 공연하던 제주 돌고래의 이름이에요. 지금은 고향 바다에서 헤엄치고 있어요. 이곳에서는 반려견도 가족과 함께 바다 앞 하룻밤을 보내요.",
+      "intro": "1931년부터 이어진 에어스트림을 새로 리모델링했어요. 욕조와 스파시설, 에어컨과 난방을 갖췄어요.",
+      "type": "에어스트림",
+      "sizeMm": null,
+      "sizeText": "약 26㎡ (8평)",
+      "beds": "퀸 1 · 침대 겸용 의자 2",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": true,
+      "shower": true,
+      "bathtub": true,
+      "amenityKeys": [
+        "spa",
+        "deck",
+        "aircon",
+        "heating",
+        "fridge",
+        "microwave",
+        "cookware",
+        "table",
+        "extinguisher",
+        "fireAlarm"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 7,
+      "images": [
+        {
+          "key": "rooms/jedori/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "slug": "taesani",
+      "name": "태산이",
+      "tierKey": "airstream",
+      "copy": "반려견과 함께 묵는 에어스트림",
+      "nameStory": "태산이는 동물보호단체와 해양수산부 등의 노력으로 바다로 돌아간 돌고래예요. 먼 길을 돌아 집으로 온 이름처럼, 반려견과 함께 편히 쉬어 가는 객실이에요.",
+      "intro": "1931년부터 이어진 에어스트림을 새로 리모델링했어요. 욕조와 스파시설, 에어컨과 난방을 갖췄어요.",
+      "type": "에어스트림",
+      "sizeMm": null,
+      "sizeText": "약 26㎡ (8평)",
+      "beds": "퀸 1 · 침대 겸용 의자 2",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": true,
+      "shower": true,
+      "bathtub": true,
+      "amenityKeys": [
+        "spa",
+        "deck",
+        "aircon",
+        "heating",
+        "fridge",
+        "microwave",
+        "cookware",
+        "table",
+        "extinguisher",
+        "fireAlarm"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 8,
+      "images": [
+        {
+          "key": "rooms/taesani/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "slug": "chunsami",
+      "name": "춘삼이",
+      "tierKey": "airstream",
+      "copy": "바다로 돌아간 돌고래의 이름을 단 에어스트림",
+      "nameStory": "춘삼이는 태산이와 함께 바다로 돌아간 돌고래예요. 창을 열면 그 돌고래들이 사는 바다가 보여요. 아침엔 커피를 내리고 데크에 앉아 바다를 오래 바라봐요.",
+      "intro": "1931년부터 이어진 에어스트림을 새로 리모델링했어요. 욕조와 스파시설, 에어컨과 난방을 갖췄어요.",
+      "type": "에어스트림",
+      "sizeMm": null,
+      "sizeText": "약 26㎡ (8평)",
+      "beds": "퀸 1 · 침대 겸용 의자 2",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": false,
+      "shower": true,
+      "bathtub": true,
+      "amenityKeys": [
+        "spa",
+        "deck",
+        "aircon",
+        "heating",
+        "fridge",
+        "microwave",
+        "cookware",
+        "table",
+        "extinguisher",
+        "fireAlarm"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 9,
+      "images": [
+        {
+          "key": "rooms/chunsami/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "slug": "bada",
+      "name": "바다",
+      "tierKey": "value",
+      "copy": "창밖으로 바다가 보이는 카라반",
+      "nameStory": "바다라는 이름처럼, 하루의 중심에 바다를 두는 카라반이에요. 아침엔 창을 열어 파도 소리로 깨고, 낮엔 걸어서 1분 거리의 해변을 산책해요.",
+      "intro": null,
+      "type": "오션뷰 카라반 (580D)",
+      "sizeMm": {
+        "length": 7890,
+        "width": 2320
+      },
+      "sizeText": null,
+      "beds": "퀸 1",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": false,
+      "shower": null,
+      "bathtub": null,
+      "amenityKeys": [
+        "deck",
+        "aircon",
+        "tv",
+        "sofa",
+        "mirror",
+        "table",
+        "fridge",
+        "microwave",
+        "kettle",
+        "induction",
+        "knifeSterilizer",
+        "cookware",
+        "dryer",
+        "toiletries",
+        "towels",
+        "moodLight",
+        "speaker",
+        "outdoorTable"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 10,
+      "images": [
+        {
+          "key": "rooms/bada/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        },
+        {
+          "key": "rooms/bada/bath-01",
+          "category": "bath",
+          "caption": "객실 안 샤워실",
+          "alt": "객실 안 샤워실",
+          "sortOrder": 101
+        },
+        {
+          "key": "rooms/bada/bath-02",
+          "category": "bath",
+          "caption": "객실 안 화장실과 세면대",
+          "alt": "객실 안 화장실과 세면대",
+          "sortOrder": 102
+        },
+        {
+          "key": "rooms/bada/bedroom-01",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 201
+        },
+        {
+          "key": "rooms/bada/bedroom-02",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 202
+        },
+        {
+          "key": "rooms/bada/bedroom-03",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 203
+        },
+        {
+          "key": "rooms/bada/kitchen-01",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 301
+        },
+        {
+          "key": "rooms/bada/kitchen-02",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 302
+        },
+        {
+          "key": "rooms/bada/kitchen-03",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 303
+        },
+        {
+          "key": "rooms/bada/view-01",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 501
+        },
+        {
+          "key": "rooms/bada/view-02",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 502
+        },
+        {
+          "key": "rooms/bada/exterior-01",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 601
+        }
+      ]
+    },
+    {
+      "slug": "noeul",
+      "name": "노을",
+      "tierKey": "value",
+      "copy": "노을을 기다리는 오션뷰 카라반",
+      "nameStory": "노을은 선셋코스트라는 이름이 시작된 시간이에요. 해 질 무렵이면 카라반 창이 주황빛으로 물들어요. 데크에 앉아 하늘색이 바뀌는 걸 끝까지 지켜보세요.",
+      "intro": null,
+      "type": "오션뷰 카라반 (580D)",
+      "sizeMm": {
+        "length": 7890,
+        "width": 2320
+      },
+      "sizeText": null,
+      "beds": "퀸 1",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": false,
+      "shower": null,
+      "bathtub": null,
+      "amenityKeys": [
+        "deck",
+        "aircon",
+        "tv",
+        "sofa",
+        "mirror",
+        "table",
+        "fridge",
+        "microwave",
+        "kettle",
+        "induction",
+        "knifeSterilizer",
+        "cookware",
+        "dryer",
+        "toiletries",
+        "towels",
+        "moodLight",
+        "speaker",
+        "outdoorTable"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 11,
+      "images": [
+        {
+          "key": "rooms/noeul/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        },
+        {
+          "key": "rooms/noeul/bath-01",
+          "category": "bath",
+          "caption": "객실 안 샤워실",
+          "alt": "객실 안 샤워실",
+          "sortOrder": 101
+        },
+        {
+          "key": "rooms/noeul/bath-02",
+          "category": "bath",
+          "caption": "객실 안 화장실과 세면대",
+          "alt": "객실 안 화장실과 세면대",
+          "sortOrder": 102
+        },
+        {
+          "key": "rooms/noeul/bedroom-01",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 201
+        },
+        {
+          "key": "rooms/noeul/bedroom-02",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 202
+        },
+        {
+          "key": "rooms/noeul/bedroom-03",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 203
+        },
+        {
+          "key": "rooms/noeul/kitchen-01",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 301
+        },
+        {
+          "key": "rooms/noeul/kitchen-02",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 302
+        },
+        {
+          "key": "rooms/noeul/view-01",
+          "category": "view",
+          "caption": "카라반 창으로 보이는 노을",
+          "alt": "카라반 창으로 보이는 노을",
+          "sortOrder": 501
+        },
+        {
+          "key": "rooms/noeul/view-02",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 502
+        },
+        {
+          "key": "rooms/noeul/exterior-01",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 601
+        }
+      ]
+    },
+    {
+      "slug": "gorae",
+      "name": "고래",
+      "tierKey": "value",
+      "copy": "침대 셋, 아이와 함께 오기 좋은 카라반",
+      "nameStory": "고래는 영락리 앞바다 돌고래의 큰 가족이에요. 침대가 셋이라 아이들과 넉넉하게 잘 수 있어요. 낮엔 해변에서 돌고래를 찾고, 저녁엔 데크에서 다 같이 고기를 구워요.",
+      "intro": null,
+      "type": "3베드 오션뷰 카라반",
+      "sizeMm": {
+        "length": 9200,
+        "width": 2500
+      },
+      "sizeText": null,
+      "beds": "퀸 1 · 싱글 2",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": true,
+      "shower": null,
+      "bathtub": null,
+      "amenityKeys": [
+        "deck",
+        "aircon",
+        "tv",
+        "sofa",
+        "vanity",
+        "table",
+        "fridge",
+        "microwave",
+        "kettle",
+        "induction",
+        "knifeSterilizer",
+        "cookware",
+        "dryer",
+        "toiletries",
+        "towels",
+        "moodLight",
+        "speaker",
+        "outdoorTable"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 12,
+      "images": [
+        {
+          "key": "rooms/gorae/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        },
+        {
+          "key": "rooms/gorae/bath-01",
+          "category": "bath",
+          "caption": "객실 안 화장실과 세면대",
+          "alt": "객실 안 화장실과 세면대",
+          "sortOrder": 101
+        },
+        {
+          "key": "rooms/gorae/bedroom-01",
+          "category": "bedroom",
+          "caption": "캐노피 커튼이 있는 침실",
+          "alt": "캐노피 커튼이 있는 침실",
+          "sortOrder": 201
+        },
+        {
+          "key": "rooms/gorae/bedroom-02",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 202
+        },
+        {
+          "key": "rooms/gorae/bedroom-03",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 203
+        },
+        {
+          "key": "rooms/gorae/bedroom-04",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 204
+        },
+        {
+          "key": "rooms/gorae/kitchen-01",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 301
+        },
+        {
+          "key": "rooms/gorae/kitchen-02",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 302
+        },
+        {
+          "key": "rooms/gorae/view-01",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 501
+        },
+        {
+          "key": "rooms/gorae/view-02",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 502
+        },
+        {
+          "key": "rooms/gorae/exterior-01",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 601
+        }
+      ]
+    },
+    {
+      "slug": "haean",
+      "name": "해안",
+      "tierKey": "value",
+      "copy": "2층 침대가 있는 카라반, 반려견과 함께",
+      "nameStory": "해안은 바다와 땅이 만나는 자리예요. 아이들이 좋아하는 2층 침대가 있어서, 누가 위층에서 잘지 정하는 것부터 여행이 시작돼요. 반려견도 함께 묵을 수 있어요.",
+      "intro": null,
+      "type": "2층 침대 오션뷰 카라반",
+      "sizeMm": {
+        "length": 7250,
+        "width": 2450
+      },
+      "sizeText": null,
+      "beds": "퀸 1 · 싱글 2",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": true,
+      "shower": null,
+      "bathtub": null,
+      "amenityKeys": [
+        "deck",
+        "aircon",
+        "tv",
+        "sofa",
+        "table",
+        "fridge",
+        "microwave",
+        "kettle",
+        "induction",
+        "knifeSterilizer",
+        "cookware",
+        "dryer",
+        "toiletries",
+        "towels",
+        "moodLight",
+        "speaker",
+        "outdoorTable"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 13,
+      "images": [
+        {
+          "key": "rooms/haean/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        },
+        {
+          "key": "rooms/haean/bath-01",
+          "category": "bath",
+          "caption": "객실 안 화장실과 세면대",
+          "alt": "객실 안 화장실과 세면대",
+          "sortOrder": 101
+        },
+        {
+          "key": "rooms/haean/bath-02",
+          "category": "bath",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 102
+        },
+        {
+          "key": "rooms/haean/bedroom-01",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 201
+        },
+        {
+          "key": "rooms/haean/bedroom-02",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 202
+        },
+        {
+          "key": "rooms/haean/bedroom-03",
+          "category": "bedroom",
+          "caption": "2층 침대",
+          "alt": "2층 침대",
+          "sortOrder": 203
+        },
+        {
+          "key": "rooms/haean/bedroom-04",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 204
+        },
+        {
+          "key": "rooms/haean/kitchen-01",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 301
+        },
+        {
+          "key": "rooms/haean/kitchen-02",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 302
+        },
+        {
+          "key": "rooms/haean/view-01",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 501
+        },
+        {
+          "key": "rooms/haean/view-02",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 502
+        },
+        {
+          "key": "rooms/haean/exterior-01",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 601
+        }
+      ]
+    },
+    {
+      "slug": "baram",
+      "name": "바람",
+      "tierKey": "value",
+      "copy": "반려견과 함께 묵는 오션뷰 카라반",
+      "nameStory": "바람은 제주에 왔다는 걸 가장 먼저 알려주는 손님이에요. 반려견과 함께 해안도로를 따라 바닷바람을 맞으며 걷고, 저녁엔 데크에서 바람이 잦아드는 걸 느껴요.",
+      "intro": null,
+      "type": "오션뷰 카라반",
+      "sizeMm": {
+        "length": 7250,
+        "width": 2450
+      },
+      "sizeText": null,
+      "beds": "퀸 1",
+      "guestsBase": 2,
+      "guestsMax": 4,
+      "view": "오션뷰",
+      "petsAllowed": true,
+      "shower": null,
+      "bathtub": null,
+      "amenityKeys": [
+        "deck",
+        "aircon",
+        "tv",
+        "vanity",
+        "table",
+        "fridge",
+        "microwave",
+        "kettle",
+        "induction",
+        "cookware",
+        "dryer",
+        "toiletries",
+        "towels",
+        "moodLight",
+        "speaker",
+        "outdoorTable"
+      ],
+      "privateToilet": true,
+      "bookingLinks": {},
+      "externalIds": {},
+      "visible": true,
+      "sortOrder": 14,
+      "images": [
+        {
+          "key": "rooms/baram/cover-01",
+          "category": "cover",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 1
+        },
+        {
+          "key": "rooms/baram/bath-01",
+          "category": "bath",
+          "caption": "객실 안 화장실과 세면대",
+          "alt": "객실 안 화장실과 세면대",
+          "sortOrder": 101
+        },
+        {
+          "key": "rooms/baram/bedroom-01",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 201
+        },
+        {
+          "key": "rooms/baram/bedroom-02",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 202
+        },
+        {
+          "key": "rooms/baram/bedroom-03",
+          "category": "bedroom",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 203
+        },
+        {
+          "key": "rooms/baram/kitchen-01",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 301
+        },
+        {
+          "key": "rooms/baram/kitchen-02",
+          "category": "kitchen",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 302
+        },
+        {
+          "key": "rooms/baram/view-01",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 501
+        },
+        {
+          "key": "rooms/baram/view-02",
+          "category": "view",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 502
+        },
+        {
+          "key": "rooms/baram/exterior-01",
+          "category": "exterior",
+          "caption": null,
+          "alt": null,
+          "sortOrder": 601
+        }
+      ]
+    }
+  ],
+  "amenities": [
+    {
+      "key": "privateToilet",
+      "name": "개별 화장실",
+      "icon": "toilet",
+      "priority": true
+    },
+    {
+      "key": "shower",
+      "name": "객실 샤워실",
+      "icon": "shower",
+      "priority": true
+    },
+    {
+      "key": "bathtub",
+      "name": "욕조",
+      "icon": "bath",
+      "priority": true
+    },
+    {
+      "key": "spa",
+      "name": "스파시설",
+      "icon": "spa"
+    },
+    {
+      "key": "deck",
+      "name": "개별 데크",
+      "icon": "deck"
+    },
+    {
+      "key": "aircon",
+      "name": "에어컨",
+      "icon": "snow"
+    },
+    {
+      "key": "heating",
+      "name": "난방",
+      "icon": "flame"
+    },
+    {
+      "key": "tv",
+      "name": "TV",
+      "icon": "tv"
+    },
+    {
+      "key": "fridge",
+      "name": "냉장고",
+      "icon": "fridge"
+    },
+    {
+      "key": "microwave",
+      "name": "전자레인지",
+      "icon": "micro"
+    },
+    {
+      "key": "kettle",
+      "name": "전기포트",
+      "icon": "kettle"
+    },
+    {
+      "key": "induction",
+      "name": "인덕션",
+      "icon": "induction"
+    },
+    {
+      "key": "cookware",
+      "name": "취사도구",
+      "icon": "pot"
+    },
+    {
+      "key": "knifeSterilizer",
+      "name": "칼·도마 살균기",
+      "icon": "knife"
+    },
+    {
+      "key": "table",
+      "name": "식탁",
+      "icon": "table"
+    },
+    {
+      "key": "sofa",
+      "name": "소파",
+      "icon": "sofa"
+    },
+    {
+      "key": "vanity",
+      "name": "화장대",
+      "icon": "mirror"
+    },
+    {
+      "key": "mirror",
+      "name": "거울",
+      "icon": "mirror"
+    },
+    {
+      "key": "dryer",
+      "name": "드라이기",
+      "icon": "dryer"
+    },
+    {
+      "key": "toiletries",
+      "name": "세면도구",
+      "icon": "bottle"
+    },
+    {
+      "key": "towels",
+      "name": "수건",
+      "icon": "towel"
+    },
+    {
+      "key": "moodLight",
+      "name": "무드등",
+      "icon": "lamp"
+    },
+    {
+      "key": "speaker",
+      "name": "블루투스 스피커",
+      "icon": "speaker"
+    },
+    {
+      "key": "outdoorTable",
+      "name": "야외 테이블",
+      "icon": "picnic"
+    },
+    {
+      "key": "extinguisher",
+      "name": "소화기",
+      "icon": "ext"
+    },
+    {
+      "key": "fireAlarm",
+      "name": "화재경보기",
+      "icon": "alarm"
+    }
+  ],
+  "rateSeasons": [
+    {
+      "key": "offWeekday",
+      "name": "비수기 평일",
+      "description": "일~금",
+      "sortOrder": 1
+    },
+    {
+      "key": "offWeekend",
+      "name": "비수기 주말",
+      "description": "토요일, 법정공휴일 전날",
+      "sortOrder": 2
+    },
+    {
+      "key": "peakWeekday",
+      "name": "성수기 평일",
+      "description": "일~금",
+      "sortOrder": 3
+    },
+    {
+      "key": "peakWeekend",
+      "name": "성수기 주말",
+      "description": "토요일, 법정공휴일 전날",
+      "sortOrder": 4
+    }
+  ],
+  "peakPeriods": [],
+  "rates": [
+    {
+      "roomSlug": "nolmeong",
+      "seasonKey": "offWeekday",
+      "price": 230000
+    },
+    {
+      "roomSlug": "nolmeong",
+      "seasonKey": "offWeekend",
+      "price": 250000
+    },
+    {
+      "roomSlug": "nolmeong",
+      "seasonKey": "peakWeekday",
+      "price": 290000
+    },
+    {
+      "roomSlug": "nolmeong",
+      "seasonKey": "peakWeekend",
+      "price": 290000
+    },
+    {
+      "roomSlug": "mulmeong",
+      "seasonKey": "offWeekday",
+      "price": 230000
+    },
+    {
+      "roomSlug": "mulmeong",
+      "seasonKey": "offWeekend",
+      "price": 250000
+    },
+    {
+      "roomSlug": "mulmeong",
+      "seasonKey": "peakWeekday",
+      "price": 290000
+    },
+    {
+      "roomSlug": "mulmeong",
+      "seasonKey": "peakWeekend",
+      "price": 290000
+    },
+    {
+      "roomSlug": "swimeong",
+      "seasonKey": "offWeekday",
+      "price": 230000
+    },
+    {
+      "roomSlug": "swimeong",
+      "seasonKey": "offWeekend",
+      "price": 250000
+    },
+    {
+      "roomSlug": "swimeong",
+      "seasonKey": "peakWeekday",
+      "price": 290000
+    },
+    {
+      "roomSlug": "swimeong",
+      "seasonKey": "peakWeekend",
+      "price": 290000
+    },
+    {
+      "roomSlug": "bulmeong",
+      "seasonKey": "offWeekday",
+      "price": 200000
+    },
+    {
+      "roomSlug": "bulmeong",
+      "seasonKey": "offWeekend",
+      "price": 230000
+    },
+    {
+      "roomSlug": "bulmeong",
+      "seasonKey": "peakWeekday",
+      "price": 250000
+    },
+    {
+      "roomSlug": "bulmeong",
+      "seasonKey": "peakWeekend",
+      "price": 250000
+    },
+    {
+      "roomSlug": "suaegi",
+      "seasonKey": "offWeekday",
+      "price": 150000
+    },
+    {
+      "roomSlug": "suaegi",
+      "seasonKey": "offWeekend",
+      "price": 170000
+    },
+    {
+      "roomSlug": "suaegi",
+      "seasonKey": "peakWeekday",
+      "price": 220000
+    },
+    {
+      "roomSlug": "suaegi",
+      "seasonKey": "peakWeekend",
+      "price": 220000
+    },
+    {
+      "roomSlug": "gomsaegi",
+      "seasonKey": "offWeekday",
+      "price": 150000
+    },
+    {
+      "roomSlug": "gomsaegi",
+      "seasonKey": "offWeekend",
+      "price": 170000
+    },
+    {
+      "roomSlug": "gomsaegi",
+      "seasonKey": "peakWeekday",
+      "price": 220000
+    },
+    {
+      "roomSlug": "gomsaegi",
+      "seasonKey": "peakWeekend",
+      "price": 220000
+    },
+    {
+      "roomSlug": "jedori",
+      "seasonKey": "offWeekday",
+      "price": 150000
+    },
+    {
+      "roomSlug": "jedori",
+      "seasonKey": "offWeekend",
+      "price": 170000
+    },
+    {
+      "roomSlug": "jedori",
+      "seasonKey": "peakWeekday",
+      "price": 220000
+    },
+    {
+      "roomSlug": "jedori",
+      "seasonKey": "peakWeekend",
+      "price": 220000
+    },
+    {
+      "roomSlug": "taesani",
+      "seasonKey": "offWeekday",
+      "price": 150000
+    },
+    {
+      "roomSlug": "taesani",
+      "seasonKey": "offWeekend",
+      "price": 170000
+    },
+    {
+      "roomSlug": "taesani",
+      "seasonKey": "peakWeekday",
+      "price": 220000
+    },
+    {
+      "roomSlug": "taesani",
+      "seasonKey": "peakWeekend",
+      "price": 220000
+    },
+    {
+      "roomSlug": "chunsami",
+      "seasonKey": "offWeekday",
+      "price": 150000
+    },
+    {
+      "roomSlug": "chunsami",
+      "seasonKey": "offWeekend",
+      "price": 170000
+    },
+    {
+      "roomSlug": "chunsami",
+      "seasonKey": "peakWeekday",
+      "price": 220000
+    },
+    {
+      "roomSlug": "chunsami",
+      "seasonKey": "peakWeekend",
+      "price": 220000
+    },
+    {
+      "roomSlug": "bada",
+      "seasonKey": "offWeekday",
+      "price": 100000
+    },
+    {
+      "roomSlug": "bada",
+      "seasonKey": "offWeekend",
+      "price": 120000
+    },
+    {
+      "roomSlug": "bada",
+      "seasonKey": "peakWeekday",
+      "price": 170000
+    },
+    {
+      "roomSlug": "bada",
+      "seasonKey": "peakWeekend",
+      "price": 170000
+    },
+    {
+      "roomSlug": "noeul",
+      "seasonKey": "offWeekday",
+      "price": 100000
+    },
+    {
+      "roomSlug": "noeul",
+      "seasonKey": "offWeekend",
+      "price": 120000
+    },
+    {
+      "roomSlug": "noeul",
+      "seasonKey": "peakWeekday",
+      "price": 170000
+    },
+    {
+      "roomSlug": "noeul",
+      "seasonKey": "peakWeekend",
+      "price": 170000
+    },
+    {
+      "roomSlug": "haean",
+      "seasonKey": "offWeekday",
+      "price": 110000
+    },
+    {
+      "roomSlug": "haean",
+      "seasonKey": "offWeekend",
+      "price": 130000
+    },
+    {
+      "roomSlug": "haean",
+      "seasonKey": "peakWeekday",
+      "price": 200000
+    },
+    {
+      "roomSlug": "haean",
+      "seasonKey": "peakWeekend",
+      "price": 200000
+    },
+    {
+      "roomSlug": "baram",
+      "seasonKey": "offWeekday",
+      "price": 110000
+    },
+    {
+      "roomSlug": "baram",
+      "seasonKey": "offWeekend",
+      "price": 130000
+    },
+    {
+      "roomSlug": "baram",
+      "seasonKey": "peakWeekday",
+      "price": 180000
+    },
+    {
+      "roomSlug": "baram",
+      "seasonKey": "peakWeekend",
+      "price": 180000
+    },
+    {
+      "roomSlug": "gorae",
+      "seasonKey": "offWeekday",
+      "price": 130000
+    },
+    {
+      "roomSlug": "gorae",
+      "seasonKey": "offWeekend",
+      "price": 150000
+    },
+    {
+      "roomSlug": "gorae",
+      "seasonKey": "peakWeekday",
+      "price": 200000
+    },
+    {
+      "roomSlug": "gorae",
+      "seasonKey": "peakWeekend",
+      "price": 200000
+    }
+  ],
+  "extraPersonFee": {
+    "adult": 20000,
+    "child": 20000,
+    "infantFreeCount": 1,
+    "overrides": {}
+  },
+  "petPolicy": {
+    "fees": [
+      {
+        "condition": "10kg 미만",
+        "fee": "2마리까지 무료"
+      },
+      {
+        "condition": "10kg 이상",
+        "fee": "1마리당 20,000원"
+      },
+      {
+        "condition": "3마리째부터",
+        "fee": "1마리당 20,000원"
+      }
+    ],
+    "notes": [
+      "침대에 함께 올라가도 괜찮아요.",
+      "목줄 없이 다녀도 돼요. 다만 반려견으로 생긴 사고는 캠핑장에서 책임지지 않아요.",
+      "법으로 정한 맹견(도사견, 아메리칸 핏불테리어, 아메리칸 스태퍼드셔 테리어, 스태퍼드셔 불 테리어, 로트와일러와 그 잡종)은 함께 묵을 수 없어요.",
+      "기질평가를 거쳐 시·도지사가 맹견으로 지정한 반려견도 함께 묵을 수 없어요.",
+      "배변패드, 식기 같은 반려견 용품은 따로 준비해 주세요."
+    ]
+  },
+  "posts": [],
+  "reviews": [
+    {
+      "id": "nolmeong-01",
+      "roomSlug": "nolmeong",
+      "companion": "연인 · 반려견",
+      "visitedMonth": "2026-09",
+      "featured": true,
+      "sortOrder": 1,
+      "source": "naver",
+      "keywords": [
+        "깨끗해요",
+        "조용히 쉬기 좋아요",
+        "사진이 잘 나와요"
+      ],
+      "body": "시설도 깨끗하고 강아지와 함께 잔디밭에서 놀 수 있어 너무 좋았습니다. 바베큐도 카라반마다 간격이 있어 우리들끼리 즐길 수 있어 좋아요! 전면 통창이라 누워서 노을 보기에도 좋고, 천장도 창문으로 되어 있어 밤하늘 보기에도 좋았네요."
+    },
+    {
+      "id": "gorae-01",
+      "roomSlug": "gorae",
+      "companion": "가족 · 반려견",
+      "visitedMonth": "2026-10",
+      "featured": true,
+      "sortOrder": 2,
+      "source": "naver",
+      "keywords": [
+        "깨끗해요",
+        "뷰가 좋아요",
+        "친절해요"
+      ],
+      "body": "제주도민이지만 경치 좋은 곳에서 강아지들이랑 쉬고 싶어서 예약해 봤는데요, 성인 4명이랑 강아지 2마리가 충분히 넓게 쉴 수 있는 크기예요! 앞에 펜스도 있고 잔디밭도 있어서 강아지들도 무척 좋아하고, 목욕용품도 구비되어 있어 편하게 쉬다 갈 수 있어요~"
+    },
+    {
+      "id": "jedori-01",
+      "roomSlug": "jedori",
+      "companion": "친구 · 반려견",
+      "visitedMonth": "2026-10",
+      "featured": true,
+      "sortOrder": 3,
+      "source": "naver",
+      "keywords": [
+        "뷰가 좋아요",
+        "사진이 잘 나와요",
+        "반려동물과 가기 좋아요"
+      ],
+      "body": "강아지와 함께 다녀왔는데 너무 좋았어요! 🐶 뷰도 정말 예쁘고 실내 인테리어도 감성적이라 사진 찍기에도 좋았어요. 아늑하고 예쁜 공간에서 좋은 풍경 보며 힐링 제대로 하고 갑니다. 다음에 또 방문하고 싶어요."
+    },
+    {
+      "id": "taesani-01",
+      "roomSlug": "taesani",
+      "companion": "연인 · 반려견",
+      "visitedMonth": "2026-09",
+      "featured": true,
+      "sortOrder": 4,
+      "source": "naver",
+      "keywords": [
+        "깨끗해요",
+        "친절해요",
+        "사진이 잘 나와요"
+      ],
+      "body": "강아지랑 같이 갔는데 진짜 너무 좋았고, 사장님도 친절하셨습니다."
+    },
+    {
+      "id": "nolmeong-02",
+      "roomSlug": "nolmeong",
+      "companion": "가족",
+      "visitedMonth": "2026-10",
+      "featured": true,
+      "sortOrder": 5,
+      "source": "naver",
+      "keywords": [
+        "스파하기 좋아요",
+        "바비큐 해먹기 좋아요",
+        "사진이 잘 나와요"
+      ],
+      "body": "가족들이랑 여행 왔어요! 바다 앞에서 스파하면서 고기 구워 먹을 수 있어 좋고, 깨끗하게 관리 잘 되어 있어요 🙂 어느 각도에서 찍어도 쨍한 색감에 사진 너무 잘 나와요. 사장님 친절하시고 빔도 있어서 누워 쉬기도 좋았어요!"
+    },
+    {
+      "id": "nolmeong-03",
+      "roomSlug": "nolmeong",
+      "companion": "연인",
+      "visitedMonth": "2026-08",
+      "featured": true,
+      "sortOrder": 6,
+      "source": "naver",
+      "keywords": [
+        "조용히 쉬기 좋아요",
+        "깨끗해요",
+        "화장실이 잘 되어있어요"
+      ],
+      "body": "주변에 추천하기 아까울 정도로 좋았어요. 다음에 가족들이랑도 오고 싶네요. 그동안 가 본 카라반 글램핑 중 최고였어요. 다음에 또 갈 거예요!"
+    },
+    {
+      "id": "chunsami-01",
+      "roomSlug": "chunsami",
+      "companion": "아이",
+      "visitedMonth": "2026-05",
+      "featured": true,
+      "sortOrder": 7,
+      "source": "naver",
+      "keywords": [
+        "깨끗해요",
+        "화장실이 잘 되어있어요",
+        "뷰가 좋아요"
+      ],
+      "body": "아이들이 카라반에서 한번 자 보고 싶다고 해서 예약해 봤는데 예약하길 잘한 것 같아요. 사진 그대로여서 너무 좋았고, 객실 안에 너무 알차게 다 있어서 하루 지내는 데 불편함이 전혀 없었어요. 추울까 봐 걱정했는데 오히려 더울 정도로 따뜻했고, 침구류도 깔끔하고 식기들도 관리가 참 잘 된다 싶었어요!"
+    },
+    {
+      "id": "suaegi-01",
+      "roomSlug": "suaegi",
+      "companion": "연인",
+      "visitedMonth": "2026-09",
+      "featured": true,
+      "sortOrder": 8,
+      "source": "naver",
+      "keywords": [
+        "뷰가 좋아요",
+        "조용히 쉬기 좋아요",
+        "온수가 잘 나와요"
+      ],
+      "body": "바다뷰 엄청 좋고 사장님 너무 친절하세요! 다음에 또 조용하게 쉬러 오고 싶네요. 만족입니다!"
+    },
+    {
+      "id": "taesani-02",
+      "roomSlug": "taesani",
+      "companion": "아이",
+      "visitedMonth": "2026-09",
+      "featured": false,
+      "sortOrder": 9,
+      "source": "naver",
+      "keywords": [
+        "깨끗해요",
+        "뷰가 좋아요",
+        "사이트 간격이 넓어요"
+      ],
+      "body": "아이와 함께 여행하는데 정말 좋아해 주네요~ 카라반에서 머무는 건 처음이라 이렇게 좋아할 줄 몰랐습니다. 물건들도 다 아기자기 예쁘고 너무 깨끗해서 놀랐어요. 다음엔 다른 타입 카라반도 머물고 싶어지네요."
+    },
+    {
+      "id": "haean-01",
+      "roomSlug": "haean",
+      "companion": "아이 · 연인",
+      "visitedMonth": "2026-10",
+      "featured": false,
+      "sortOrder": 10,
+      "source": "naver",
+      "keywords": [
+        "뷰가 좋아요",
+        "바비큐 해먹기 좋아요",
+        "아이와 가기 좋아요"
+      ],
+      "body": "뷰 맛집이에요 ☺️ 애들이랑 바베큐 하고, 마당에서 놀기 좋아요~ 조용하고 날씨도 선선하니 너무 좋아요!"
+    },
+    {
+      "id": "gorae-02",
+      "roomSlug": "gorae",
+      "companion": "부모님",
+      "visitedMonth": "2026-04",
+      "featured": false,
+      "sortOrder": 11,
+      "source": "naver",
+      "keywords": [
+        "깨끗해요",
+        "온수가 잘 나와요",
+        "개수대가 잘 되어있어요"
+      ],
+      "body": "솔직히 사진으로는 그리 좋아 보이지 않아서 풍경 목적으로 예약한 건데, 실제로 내부에 들어오면 진짜 좋아요. 깨끗하고 냉난방 잘 되고 물 잘 나오고 없는 게 없어요. 그래서 밖에 안 나가고 방콕 했어요. 그냥 오세요, 후회 안 하실 거예요 👍"
+    },
+    {
+      "id": "site-01",
+      "roomSlug": null,
+      "companion": "연인",
+      "visitedMonth": "2026-10",
+      "featured": false,
+      "sortOrder": 12,
+      "source": "naver",
+      "keywords": [
+        "침구가 좋아요",
+        "뷰가 좋아요",
+        "조용히 쉬기 좋아요"
+      ],
+      "body": "바다 전망이 너무 좋고 조용하게 힐링하기 좋은 곳이에요! 🌊 숙소에서 바다를 바라보며 여유롭게 시간을 보낼 수 있고, 노을 질 때 분위기도 정말 좋을 것 같아요. 색다른 카라반 숙박을 경험하고 싶은 분들께 추천하고 싶어요."
+    }
+  ],
+  "policies": {
+    "checkIn": "15:00~22:00",
+    "checkInNote": "밤 10시 이후 도착은 미리 연락 주세요.",
+    "checkOut": "오전 11:00",
+    "rules": [
+      "기준 인원을 넘으면 추가 요금이 있어요. 최대 인원을 넘으면 입실과 환불이 안 돼요.",
+      "미성년자는 보호자와 함께 와야 해요.",
+      "객실 안에서는 금연이에요.",
+      "객실 안에서 직접 불을 쓰거나 고기·튀김을 조리할 수 없어요.",
+      "바베큐와 큰 소리는 밤 11시까지예요.",
+      "퇴실할 때 객실을 정리하고 쓰레기는 분리배출해 주세요. 퇴실 점검이 있어요."
+    ],
+    "refund": [
+      {
+        "when": "10일 전까지",
+        "fee": "10%"
+      },
+      {
+        "when": "9일 전",
+        "fee": "20%"
+      },
+      {
+        "when": "8일 전",
+        "fee": "30%"
+      },
+      {
+        "when": "7일 전",
+        "fee": "40%"
+      },
+      {
+        "when": "6일 전",
+        "fee": "50%"
+      },
+      {
+        "when": "5일 전",
+        "fee": "60%"
+      },
+      {
+        "when": "4일 전",
+        "fee": "70%"
+      },
+      {
+        "when": "3일 전",
+        "fee": "80%"
+      },
+      {
+        "when": "2일 전",
+        "fee": "90%"
+      },
+      {
+        "when": "1일 전 · 당일",
+        "fee": "100% (환불 불가)"
+      }
+    ],
+    "refundNotes": [
+      "이용일 기준이에요. 당일 예약 후 당일 취소에도 수수료가 붙어요.",
+      "환불은 입금하신 분 이름으로, 송금 수수료를 빼고 보내드려요."
+    ]
+  },
+  "faqs": [
+    {
+      "q": "반려견과 함께 묵을 수 있나요?",
+      "a": "네, 놀멍 · 제돌이 · 태산이 · 고래 · 해안 · 바람 6동에서 함께 묵을 수 있어요. 10kg 미만은 2마리까지 무료예요. 10kg 이상이거나 3마리째부터는 1마리당 20,000원이에요."
+    },
+    {
+      "q": "화장실이 객실 안에 있나요?",
+      "a": "네. 모든 카라반에 개별 화장실이 있어요. 밤에 밖으로 나갈 필요가 없어요. 공용 화장실과 남·녀 샤워실도 따로 운영해요."
+    },
+    {
+      "q": "바베큐는 어디서 하나요?",
+      "a": "카라반마다 있는 개별 데크에서 해요. 숯과 그릴은 30,000원이고, 바베큐는 밤 11시까지 할 수 있어요."
+    },
+    {
+      "q": "아이도 추가 요금이 있나요?",
+      "a": "기준 인원을 넘으면 성인과 아동 모두 1인 20,000원이에요. 24개월 미만은 1명까지 무료예요."
+    },
+    {
+      "q": "입실과 퇴실은 몇 시인가요?",
+      "a": "입실은 오후 3시부터 밤 10시까지, 퇴실은 오전 11시예요. 밤 10시 이후에 도착하시면 미리 연락 주세요."
+    },
+    {
+      "q": "자전거를 빌릴 수 있나요?",
+      "a": "브롬톤 자전거 4대를 투숙객에게 2시간 무료로 빌려드려요. 대수가 적어서 이용이 어려울 수 있어요."
+    },
+    {
+      "q": "취소하면 환불은 어떻게 되나요?",
+      "a": "이용일 10일 전까지는 수수료 10%이고, 하루씩 가까워질수록 10%씩 늘어요. 1일 전과 당일은 환불이 안 돼요. 자세한 표는 예약 안내에 있어요."
+    }
+  ],
+  "services": [
+    {
+      "key": "bbq",
+      "name": "개별 바베큐",
+      "icon": "grill",
+      "summary": "우리 카라반 데크에서 바베큐를 해요.",
+      "howTo": [
+        "카라반마다 개별 데크가 있어요.",
+        "바베큐는 밤 11시까지예요.",
+        "객실 안에서는 불을 쓸 수 없어요."
+      ],
+      "price": "숯 + 그릴 30,000원",
+      "image": "site/facility/bbq-01"
+    },
+    {
+      "key": "bike",
+      "name": "브롬톤 자전거",
+      "icon": "bike",
+      "summary": "해안도로를 따라 달려요.",
+      "howTo": [
+        "투숙객에게 2시간 무료로 빌려드려요.",
+        "4대뿐이라 선착순이고, 이용이 어려울 수 있어요."
+      ],
+      "price": "투숙객 2시간 무료",
+      "image": null
+    }
+  ],
+  "commonFacilities": [
+    "남·녀 탈의실과 샤워실",
+    "공용 화장실",
+    "공동 취사장",
+    "세탁실",
+    "긴급대피소"
+  ],
+  "tours": [
+    {
+      "name": "해변 (남방큰돌고래 출몰)",
+      "distance": "도보 1분",
+      "note": "노을해안로 216-6",
+      "kidFriendly": false
+    },
+    {
+      "name": "초콜릿박물관",
+      "distance": "차량 8분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "가시오름",
+      "distance": "차량 12분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "모슬포항",
+      "distance": "차량 12분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "M1971 요트투어",
+      "distance": "차량 13분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "마라도해양도립공원",
+      "distance": "차량 13분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "송악산",
+      "distance": "차량 16분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "올레길 10코스",
+      "distance": "차량 16분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "노리매공원",
+      "distance": "차량 17분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "산방산탄산온천 · 사계해변",
+      "distance": "차량 17분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "곶자왈도립공원",
+      "distance": "차량 18분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "오설록 티뮤지엄",
+      "distance": "차량 19분",
+      "note": null,
+      "kidFriendly": false
+    },
+    {
+      "name": "제주신화월드",
+      "distance": "차량 23분",
+      "note": null,
+      "kidFriendly": false
+    }
+  ]
+}

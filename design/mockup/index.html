@@ -1,0 +1,760 @@
+<title>선셋코스트 디자인 시안</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Hahmlet:wght@300;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* 레이아웃: 바깥은 시안 설명 페이지, 안쪽은 360px 휴대폰 화면 두 개(홈 · 객실 상세)를 나란히. 방향(A/B)은 탭으로 전환. */
+:root{
+  --pg-bg:#F3F0EC; --pg-fg:#26221F; --pg-mute:#6F665E; --pg-line:#DCD4CA; --pg-chip:#FFFFFF; --pg-acc:#B9502F;
+  --body:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --pg-bg:#11161C; --pg-fg:#ECE6DE; --pg-mute:#A39A90; --pg-line:#2A333D; --pg-chip:#1A2129; --pg-acc:#F0866B; color-scheme:dark } }
+:root[data-theme="dark"]{ --pg-bg:#11161C; --pg-fg:#ECE6DE; --pg-mute:#A39A90; --pg-line:#2A333D; --pg-chip:#1A2129; --pg-acc:#F0866B; color-scheme:dark }
+
+/* 휴대폰 안 토큰: A안 엽서 / B안 노을 시간표. 다크 모드는 해 진 뒤의 밤바다 */
+.A{ --bg:#F6EFE4; --surf:#FFFAF3; --ink:#2A2420; --mute:#786C61; --line:#E3D5C3; --coral:#D9654B; --btn:#B9502F; --onbtn:#FFFFFF; --amber:#E39A2D; --sea:#1E4A66; --band:#EFE4D4; --disp:'Gowun Batang','Nanum Myeongjo',serif }
+.B{ --bg:#FFF6EE; --surf:#FFFFFF; --ink:#16202E; --mute:#5F6878; --line:#EADBCD; --coral:#EA5F45; --btn:#D94A31; --onbtn:#FFFFFF; --amber:#F29B38; --sea:#132C47; --band:#132C47; --disp:'Hahmlet','Nanum Myeongjo',serif }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .A{
+  --bg:#0E1A24; --surf:#152532; --ink:#EEE6DA; --mute:#98A6B2; --line:#25394A; --coral:#F0866B; --btn:#F0866B; --onbtn:#1B0E09; --amber:#F2B45A; --sea:#8CBAD8; --band:#13222F }
+  :root:not([data-theme="light"]) .B{
+  --bg:#0A1320; --surf:#111E30; --ink:#F3EBE2; --mute:#97A3B6; --line:#1F2F45; --coral:#F4785F; --btn:#F4785F; --onbtn:#1B0E09; --amber:#F6AE55; --sea:#9CC3E6; --band:#16304D } }
+:root[data-theme="dark"] .A{ --bg:#0E1A24; --surf:#152532; --ink:#EEE6DA; --mute:#98A6B2; --line:#25394A; --coral:#F0866B; --btn:#F0866B; --onbtn:#1B0E09; --amber:#F2B45A; --sea:#8CBAD8; --band:#13222F }
+:root[data-theme="dark"] .B{ --bg:#0A1320; --surf:#111E30; --ink:#F3EBE2; --mute:#97A3B6; --line:#1F2F45; --coral:#F4785F; --btn:#F4785F; --onbtn:#1B0E09; --amber:#F6AE55; --sea:#9CC3E6; --band:#16304D }
+
+*{box-sizing:border-box}
+body{background:var(--pg-bg);color:var(--pg-fg);font-family:var(--body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.top{display:flex;flex-direction:column;gap:8px}
+.top .eyebrow{font-size:12px;letter-spacing:.08em;color:var(--pg-mute)}
+.top h1{margin:0;font-family:'Gowun Batang',serif;font-size:28px;font-weight:700;text-wrap:balance}
+.top p{margin:0;color:var(--pg-mute);max-width:65ch}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs a{padding:10px 16px;border:1px solid var(--pg-line);border-radius:999px;color:var(--pg-fg);text-decoration:none;font-weight:500;background:var(--pg-chip)}
+.tabs a[aria-current="true"]{border-color:var(--pg-acc);color:var(--pg-acc)}
+.tabs a:focus-visible,.switch button:focus-visible{outline:2px solid var(--pg-acc);outline-offset:2px}
+.dir{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+.about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:760px){.about{grid-template-columns:minmax(0,1fr)}}
+.about h2{margin:0 0 6px;font-size:20px}
+.about ul{margin:8px 0 0;padding-left:18px;color:var(--pg-mute)}
+.tokens{display:flex;flex-direction:column;gap:10px}
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw span{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--pg-mute);width:64px}
+.sw i{display:block;height:36px;border-radius:8px;border:1px solid var(--pg-line)}
+.typeset{font-size:13px;color:var(--pg-mute)}
+.typeset b{display:block;font-size:22px;font-weight:400;color:var(--pg-fg);line-height:1.3}
+.phones{display:flex;flex-wrap:wrap;gap:32px;justify-content:center;align-items:flex-start}
+.col{display:flex;flex-direction:column;gap:10px;align-items:center;width:min(360px,100%)}
+.col h3{margin:0;font-size:14px;font-weight:500;color:var(--pg-mute)}
+.switch{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.switch button{font:inherit;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--pg-line);background:var(--pg-chip);color:var(--pg-fg);cursor:pointer}
+.switch button[aria-pressed="true"]{border-color:var(--pg-acc);color:var(--pg-acc)}
+.notes{border-top:1px solid var(--pg-line);padding-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;font-size:14px;color:var(--pg-mute)}
+.notes h4{margin:0 0 6px;color:var(--pg-fg);font-size:15px}
+.notes ul{margin:0;padding-left:18px}
+code{font-size:12.5px;background:var(--pg-chip);border:1px solid var(--pg-line);border-radius:4px;padding:0 4px}
+
+/* ---------- 휴대폰 공통 ---------- */
+.ph{position:relative;width:min(360px,100%);height:min(760px,86vh);border-radius:28px;overflow:hidden;border:1px solid var(--pg-line);background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.6;box-shadow:0 18px 40px -24px rgba(0,0,0,.45)}
+.scr{height:100%;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scr::-webkit-scrollbar{display:none}
+.ph svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ph a{color:inherit}
+.ph img{display:block;width:100%;height:100%;object-fit:cover}
+.disp{font-family:var(--disp)}
+.mute{color:var(--mute)}
+.sec{padding:36px 20px 0;display:flex;flex-direction:column;gap:14px}
+.sec h2{margin:0;font-family:var(--disp);font-size:22px;font-weight:700;line-height:1.35;text-wrap:balance}
+.sec .lead{margin:0;color:var(--mute);font-size:13.5px}
+.label{font-size:11px;letter-spacing:.12em;color:var(--coral);font-weight:700}
+.hbar{position:sticky;top:0;z-index:5;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px)}
+.brand{font-family:var(--disp);font-size:15px;letter-spacing:.14em;font-weight:700}
+.iconbtn{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;border:0;background:transparent;color:inherit;cursor:pointer}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:500;padding:3px 9px;border-radius:999px;background:var(--surf);color:var(--ink);border:1px solid var(--line);white-space:nowrap}
+.chip.wc{background:var(--coral);border-color:var(--coral);color:var(--onbtn)}
+.chip svg{width:14px;height:14px}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:46px;padding:0 18px;border-radius:12px;font-weight:700;font-size:14.5px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn.pri{background:var(--btn);color:var(--onbtn)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:focus-visible,.iconbtn:focus-visible,.tab:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+.dock{position:sticky;bottom:0;z-index:6;display:flex;gap:8px;align-items:center;padding:10px 12px 12px;background:var(--surf);border-top:1px solid var(--line)}
+.dock .from{flex:1;min-width:0;font-size:11.5px;line-height:1.35;color:var(--mute)}
+.dock .from b{display:block;color:var(--ink);font-size:14px}
+.dock .btn{height:44px}
+.dock .call{width:44px;padding:0}
+.ph .toast{position:absolute;left:50%;bottom:84px;transform:translateX(-50%);background:var(--ink);color:var(--bg);font-size:12.5px;padding:8px 14px;border-radius:999px;white-space:nowrap;z-index:20}
+.foot{padding:36px 20px 24px;font-size:11.5px;color:var(--mute);display:flex;flex-direction:column;gap:2px}
+.ex{font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--amber);border:1px dashed var(--amber);border-radius:4px;padding:0 5px;align-self:flex-start}
+.tbd{color:var(--mute);font-weight:500}
+
+/* 라이트박스 */
+.lb{position:absolute;inset:0;z-index:30;background:rgba(6,10,16,.94);color:#F4EEE6;display:flex;flex-direction:column}
+.lb .lbtop{display:flex;justify-content:space-between;align-items:center;padding:8px 8px 0 16px;font-size:13px}
+.lb .lbimg{flex:1;min-height:0;display:flex;align-items:center}
+.lb .lbimg img{object-fit:contain;height:100%}
+.lb .lbcap{padding:12px 16px 18px;font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.lb .iconbtn{color:#F4EEE6}
+
+/* 갤러리 공통 */
+.tabs-g{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 20px}
+.tabs-g::-webkit-scrollbar{display:none}
+.tab{font:inherit;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tab .n{opacity:.6;margin-left:3px;font-size:11px}
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.shot{flex:none;width:76%;scroll-snap-align:start;display:flex;flex-direction:column;gap:6px;cursor:zoom-in;background:none;border:0;padding:0;color:inherit;font:inherit;text-align:left}
+.shot .fr{aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--band)}
+.shot figcaption,.shot span.cap{font-size:12.5px;color:var(--mute)}
+.ready{flex:none;width:76%;scroll-snap-align:start;aspect-ratio:4/5;border-radius:14px;border:1.5px dashed var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;color:var(--mute);font-size:13px;padding:20px;background:var(--surf)}
+.ready svg{width:32px;height:32px;color:var(--coral)}
+.ready b{color:var(--ink);font-size:15px}
+
+/* 시설 / 요금 / 알아두세요 */
+.amen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 6px}
+.amen div{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11.5px;text-align:center;line-height:1.3}
+.amen div svg{width:24px;height:24px}
+.amen .key{color:var(--coral);font-weight:700}
+table.rate{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+table.rate th,table.rate td{padding:10px 4px;border-bottom:1px solid var(--line);text-align:left}
+table.rate td:last-child{text-align:right}
+.know{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:13.5px}
+.know li{display:flex;gap:10px}
+.know li svg{color:var(--coral);margin-top:2px}
+.rel{display:flex;gap:10px;overflow-x:auto;padding:0 20px;scrollbar-width:none}
+.rel::-webkit-scrollbar{display:none}
+.rel a{flex:none;width:42%;text-decoration:none;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.rel .fr{aspect-ratio:4/5;border-radius:12px;overflow:hidden}
+
+/* ---------- A안: 엽서 ---------- */
+.A .hero{margin:4px 12px 0;border-radius:22px;overflow:hidden;aspect-ratio:4/5;position:relative}
+.A .hero .cap{position:absolute;inset:auto 0 0 0;padding:60px 20px 20px;background:linear-gradient(to top,rgba(20,12,8,.72),transparent);color:#FFF8EF}
+.A .hero h1{margin:0;font-family:var(--disp);font-size:27px;line-height:1.35;font-weight:700}
+.A .sunrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 20px 0}
+.A .sun{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mute)}
+.A .sun svg{color:var(--amber)}
+.A .sun b{font-family:var(--disp);font-size:20px;color:var(--ink)}
+.A .assure{margin:28px 20px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.A .assure div{padding:16px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:12.5px;line-height:1.35}
+.A .assure div+div{border-left:1px solid var(--line)}
+.A .assure svg{width:26px;height:26px;color:var(--coral)}
+.A .assure b{font-size:13.5px}
+.A .assure span{font-size:11px;color:var(--mute)}
+.A .tier{display:flex;flex-direction:column;gap:10px;text-decoration:none}
+.A .tier .fr{aspect-ratio:3/2;border-radius:16px;overflow:hidden}
+.A .tier .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.A .tier h3{margin:0;font-family:var(--disp);font-size:19px}
+.A .tier p{margin:0;font-size:12.5px;color:var(--mute)}
+.A .who{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.A .who a{display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;text-align:center;padding:16px 4px;border:1px solid var(--line);border-radius:14px;text-decoration:none;font-size:13px;background:var(--surf)}
+.A .who svg{width:24px;height:24px;color:var(--sea)}
+.A .who span{font-size:11px;color:var(--mute)}
+.A .story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.A .story .fr{aspect-ratio:4/5;border-radius:14px;overflow:hidden}
+.A .names{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none;font-size:13px}
+.A .names li{display:flex;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.A .names b{font-family:var(--disp);min-width:48px}
+.A .fun{display:flex;flex-direction:column}
+.A .fun>div{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.A .fun>div:first-child{border-top:1px solid var(--line)}
+.A .fun svg{width:24px;height:24px;color:var(--coral);margin-top:2px}
+.A .fun b{display:block;font-size:14.5px}
+.A .fun p{margin:2px 0 0;font-size:12.5px;color:var(--mute)}
+.A .season{background:var(--band);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.A .news{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:16px;background:var(--surf)}
+.A .news .fr{aspect-ratio:1;border-radius:10px;overflow:hidden}
+.A .news p{margin:2px 0 0;font-size:12.5px;color:var(--mute)}
+.A .insta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.A .insta div{aspect-ratio:1;overflow:hidden;border-radius:6px}
+.A .loc{display:flex;flex-direction:column;gap:10px;font-size:13.5px}
+.A .loc .addr{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--surf)}
+.A .loc .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+/* A안 객실 상세 */
+.A .dhero{position:relative;aspect-ratio:4/5;margin-top:-52px}
+.A .dhero .cap{position:absolute;inset:auto 0 0 0;padding:70px 20px 18px;background:linear-gradient(to top,rgba(20,12,8,.75),transparent);color:#FFF8EF;display:flex;flex-direction:column;gap:6px}
+.A .dhero h1{margin:0;font-family:var(--disp);font-size:30px;line-height:1.2}
+.A .dhero p{margin:0;font-size:13.5px;opacity:.92}
+.A .dhero .chip{background:rgba(255,248,239,.16);border-color:rgba(255,248,239,.35);color:#FFF8EF}
+.A .dhero .chip.wc{background:var(--coral);border-color:var(--coral);color:#fff}
+.A .hbar.over{background:transparent;color:#FFF8EF;backdrop-filter:none}
+.A .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.A .facts div{padding:12px 4px 14px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.A .facts div+div{border-left:1px solid var(--line)}
+.A .facts svg{width:20px;height:20px;color:var(--coral)}
+.A .facts b{font-size:15px;line-height:1.3}
+.A .facts span{font-size:10.5px;color:var(--mute)}
+
+/* ---------- B안: 노을 시간표 ---------- */
+.B .hero{position:relative;height:640px;margin-top:-52px;color:#FFF6EC}
+.B .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,19,32,.55) 0%,rgba(10,19,32,0) 28%,rgba(10,19,32,0) 45%,rgba(10,19,32,.86) 100%)}
+.B .hero .over{position:absolute;inset:auto 0 0 0;z-index:1;padding:0 20px 24px;display:flex;flex-direction:column;gap:10px}
+.B .hero .when{font-size:12px;letter-spacing:.14em;font-weight:700;color:#FFC98E}
+.B .hero .big{font-family:var(--disp);font-weight:300;font-size:76px;line-height:.95;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.B .hero .left{font-size:13px;opacity:.85}
+.B .hero h1{margin:6px 0 4px;font-family:var(--disp);font-weight:500;font-size:21px;line-height:1.45}
+.B .hero .btn.ghost{color:#FFF6EC;border-color:rgba(255,246,236,.45)}
+.B .hbar.over{background:transparent;color:#FFF6EC;backdrop-filter:none}
+.B .glow{background:linear-gradient(160deg,var(--coral),var(--amber));color:#2A0F05;padding:30px 20px;display:flex;flex-direction:column;gap:18px}
+.B .glow .row{display:flex;gap:14px;align-items:flex-start}
+.B .glow svg{width:28px;height:28px}
+.B .glow b{display:block;font-family:var(--disp);font-size:19px;font-weight:700;line-height:1.3}
+.B .glow span{font-size:12.5px}
+.B .cards{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px;scrollbar-width:none}
+.B .cards::-webkit-scrollbar{display:none}
+.B .card{flex:none;width:78%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;position:relative;scroll-snap-align:center;text-decoration:none;color:#FFF6EC}
+.B .card .t{position:absolute;inset:auto 0 0 0;padding:48px 16px 16px;background:linear-gradient(to top,rgba(10,19,32,.85),transparent);display:flex;flex-direction:column;gap:2px}
+.B .card h3{margin:0;font-family:var(--disp);font-size:24px;font-weight:500}
+.B .card p{margin:0;font-size:12.5px;opacity:.88}
+.B .navy{background:var(--band);color:#F3EBE2;padding:32px 20px;display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.B .navy h2{margin:0;font-family:var(--disp);font-size:22px;font-weight:500}
+.B .navy a{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid rgba(243,235,226,.18);text-decoration:none;color:#F3EBE2;font-size:16px}
+.B .navy a span{font-size:12px;opacity:.7}
+.B .bleed{position:relative;aspect-ratio:1;color:#FFF6EC}
+.B .bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,19,32,.8),transparent 60%)}
+.B .bleed .t{position:absolute;inset:auto 0 0 0;z-index:1;padding:20px}
+.B .bleed h2{margin:0 0 6px;font-family:var(--disp);font-size:22px;font-weight:500}
+.B .bleed p{margin:0;font-size:13px;opacity:.9}
+.B .namecards{display:flex;gap:8px;overflow-x:auto;padding:14px 20px 0;scrollbar-width:none}
+.B .namecards::-webkit-scrollbar{display:none}
+.B .namecards div{flex:none;width:150px;padding:14px;border-radius:14px;background:var(--surf);border:1px solid var(--line);font-size:12px;color:var(--mute)}
+.B .namecards b{display:block;font-family:var(--disp);font-size:18px;color:var(--ink);font-weight:500}
+.B .tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.B .tiles>div{border-radius:16px;overflow:hidden;background:var(--surf);border:1px solid var(--line);display:flex;flex-direction:column}
+.B .tiles .fr{aspect-ratio:1}
+.B .tiles .t{padding:10px 12px 12px;font-size:12px;color:var(--mute);line-height:1.45}
+.B .tiles b{display:block;color:var(--ink);font-size:14px}
+.B .tiles .noimg{aspect-ratio:1;display:grid;place-items:center;background:var(--band);color:#F3EBE2}
+.B .tiles .noimg svg{width:34px;height:34px}
+.B .feed{display:flex;gap:8px;overflow-x:auto;padding:0 20px;scrollbar-width:none}
+.B .feed::-webkit-scrollbar{display:none}
+.B .feed>div{flex:none;width:44%;aspect-ratio:4/5;border-radius:12px;overflow:hidden;position:relative}
+.B .feed .news{width:70%;background:var(--surf);border:1px solid var(--line);display:flex;flex-direction:column}
+.B .feed .news .fr{height:55%}
+.B .feed .news .t{padding:10px 12px;font-size:12px;color:var(--mute);display:flex;flex-direction:column;gap:4px}
+.B .feed .news b{color:var(--ink);font-size:14px}
+.B .loc{display:flex;flex-direction:column;gap:0;font-size:13.5px}
+.B .loc>div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.B .loc .k{font-size:11px;color:var(--mute);display:block}
+/* B안 객실 상세 */
+.B .dhero{position:relative;height:430px;margin-top:-52px;color:#FFF6EC}
+.B .dhero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,19,32,.5),rgba(10,19,32,0) 30%,rgba(10,19,32,0) 50%,rgba(10,19,32,.85))}
+.B .dhero .t{position:absolute;inset:auto 0 0 0;z-index:1;padding:0 20px 46px;display:flex;flex-direction:column;gap:6px}
+.B .dhero .tier{font-size:11px;letter-spacing:.14em;font-weight:700;color:#FFC98E}
+.B .dhero h1{margin:0;font-family:var(--disp);font-weight:500;font-size:40px;line-height:1.05}
+.B .dhero p{margin:0;font-size:13.5px;opacity:.9}
+.B .dhero .chip{background:rgba(255,246,236,.14);border-color:rgba(255,246,236,.35);color:#FFF6EC}
+.B .dhero .chip.wc{background:var(--coral);border-color:var(--coral);color:#fff}
+.B .facts{position:relative;z-index:2;margin:-30px 12px 0;background:var(--surf);border-radius:18px;border:1px solid var(--line);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:12px 4px;box-shadow:0 10px 24px -18px rgba(0,0,0,.5)}
+.B .facts div{display:flex;flex-direction:column;align-items:center;gap:1px;text-align:center}
+.B .facts svg{width:20px;height:20px;color:var(--coral)}
+.B .facts b{font-size:15px;line-height:1.3}
+.B .facts span{font-size:10.5px;color:var(--mute)}
+.B .ggrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 20px}
+.B .ggrid .shot{width:auto}
+.B .ggrid .shot:first-child{grid-column:1/-1}
+.B .ggrid .shot:first-child .fr{aspect-ratio:3/2}
+.B .ggrid .ready{width:auto;grid-column:1/-1;aspect-ratio:3/2}
+.B .tab[aria-pressed="true"]{background:var(--coral);border-color:var(--coral);color:#fff}
+
+@media (prefers-reduced-motion:no-preference){
+  .ph .fade{animation:fade .6s ease both}
+  @keyframes fade{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="eyebrow">선셋코스트 홈페이지 · 2단계 디자인 시안 · 2026.10.27</span>
+    <h1>모바일 시안 두 가지</h1>
+    <p>현재 sunsetcoast.kr의 공개 사진으로 만든 시안이에요. 요금은 아직 받지 않아 "요금 준비 중"으로 표시했어요. 사진을 누르면 크게 볼 수 있고, 휴대폰 화면 안에서 스크롤할 수 있어요. 기기의 다크 모드를 켜면 밤바다 톤으로 바뀌어요.</p>
+  </header>
+
+  <nav class="tabs" aria-label="시안 선택">
+    <a href="#a" data-dir="a">A안 · 엽서</a>
+    <a href="#b" data-dir="b">B안 · 노을 시간표</a>
+  </nav>
+
+  <section class="dir" id="dir"></section>
+
+  <section class="notes">
+    <div>
+      <h4>두 안의 공통점</h4>
+      <ul>
+        <li>홈 순서와 객실 상세 순서는 개발 지시서 7장 그대로예요.</li>
+        <li>객실 상세 첫 화면에서 인원 · 크기 · 침대 · 반려견이 스크롤 없이 보여요.</li>
+        <li>갤러리 탭에서 욕실은 항상 두 번째예요. 욕실 사진이 없으면 "욕실 사진 준비 중" 자리가 나와요 (제돌이로 확인).</li>
+        <li>예약 버튼은 떠나요가 기본이에요. 네이버 링크가 비어 있어서 네이버 버튼은 숨겨져 있어요.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>시안에서만 임시인 것</h4>
+      <ul>
+        <li>본문 서체는 Pretendard 대신 Noto Sans KR로 보여드려요. 실제 사이트에는 Pretendard 서브셋을 직접 넣어요.</li>
+        <li>오늘 노을 시각은 캠핑장 근처 좌표로 브라우저에서 계산해요. 좌표는 G8에서 확인받을게요.</li>
+        <li><span class="ex" style="display:inline">예시</span> 표시가 붙은 문구는 관리자 화면에서 입력할 내용의 예시예요.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+const IMG = p => 'img/' + p;
+const SITE = {
+  phone: '010-4741-7064', hours: '오전 9시~오후 9시', insta: 'sunsetcoast_jeju',
+  address: '제주특별자치도 서귀포시 대정읍 노을해안로 232',
+  checkin: '15:00~22:00', checkout: '11:00',
+  lat: 33.2585, lng: 126.2185, // [확인 필요 G8] 근사 좌표
+  booking: [
+    { key: 'ddnayo', label: '떠나요에서 예약', url: 'http://www.ddnayo.com/RsvSys/?id_hotel=16384' },
+    { key: 'naver', label: '네이버 예약', url: '' } // 비어 있으면 숨김
+  ]
+};
+const TIERS = [
+  { key: 'premium', name: '프리미엄', desc: '오션뷰 우주선 카라반', rooms: '놀멍 · 물멍 · 쉬멍 · 불멍', img: 'site/tier/premium-01.jpg' },
+  { key: 'airstream', name: '에어스트림', desc: '욕조와 스파시설이 있는 에어스트림', rooms: '수애기 · 곰새기 · 제돌이 · 태산이 · 춘삼이', img: 'site/tier/airstream-01.jpg' },
+  { key: 'value', name: '가성비', desc: '오션뷰 카라반', rooms: '바다 · 노을 · 고래 · 해안 · 바람', img: 'site/tier/value-01.jpg' }
+];
+const AIRSTREAM_AMEN = [
+  ['toilet', '개별 화장실', 1], ['shower', '객실 샤워실', 1], ['bath', '욕조', 1], ['spa', '스파시설'],
+  ['snow', '에어컨'], ['flame', '난방'], ['fridge', '냉장고'], ['micro', '전자레인지'],
+  ['pot', '취사도구'], ['table', '식탁'], ['bed', '침대'], ['ext', '소화기'], ['alarm', '화재경보기']
+];
+const ROOMS = {
+  suaegi: {
+    name: '수애기', tier: '에어스트림', copy: '욕조가 있는 은빛 에어스트림', pet: false,
+    guests: [2, 4], size: '약 26㎡', sizeSub: '8평', bed: null,
+    story: '수애기는 제주 서남부 바다에 사는 돌고래의 이름이에요. 영락리 앞바다가 바로 그 바다예요. 데크에 앉아 있다 보면, 운이 좋은 날엔 돌고래가 지나가요.',
+    amen: AIRSTREAM_AMEN,
+    photos: [
+      ['cover', 'rooms/suaegi/cover-01.jpg', '에어스트림과 개별 데크'],
+      ['bath', 'rooms/suaegi/bath-01.jpg', '창 아래 놓인 둥근 욕조'],
+      ['bath', 'rooms/suaegi/bath-02.jpg', '욕조와 핸드 샤워'],
+      ['bath', 'rooms/suaegi/bath-04.jpg', '객실 안 화장실과 세면대'],
+      ['bath', 'rooms/suaegi/bath-03.jpg', '세면대'],
+      ['bedroom', 'rooms/suaegi/bedroom-01.jpg', '창으로 둘러싸인 침대'],
+      ['bedroom', 'rooms/suaegi/bedroom-03.jpg', '에어컨이 있는 침실'],
+      ['bedroom', 'rooms/suaegi/bedroom-02.jpg', '침실에서 본 실내'],
+      ['bedroom', 'rooms/suaegi/bedroom-05.jpg', '에어스트림 실내 전체'],
+      ['kitchen', 'rooms/suaegi/kitchen-01.jpg', '주방과 식탁'],
+      ['kitchen', 'rooms/suaegi/kitchen-02.jpg', '냉장고와 개수대'],
+      ['kitchen', 'rooms/suaegi/kitchen-03.jpg', '전기포트와 주방 소품'],
+      ['deck', 'rooms/suaegi/deck-01.jpg', '창밖으로 보이는 개별 데크'],
+      ['deck', 'rooms/suaegi/deck-02.jpg', '파라솔 아래 데크 의자'],
+      ['exterior', 'rooms/suaegi/exterior-01.jpg', '은빛 에어스트림 외관'],
+      ['view', 'rooms/suaegi/view-01.jpg', '캠핑장 너머로 지는 해'],
+      ['view', 'rooms/suaegi/view-02.jpg', '앞바다의 남방큰돌고래 (드론 촬영)']
+    ],
+    related: [['gomsaegi', '곰새기', '에어스트림'], ['jedori', '제돌이', '에어스트림 · 반려견'], ['taesani', '태산이', '에어스트림 · 반려견']]
+  },
+  jedori: {
+    name: '제돌이', tier: '에어스트림', copy: '반려견과 함께 묵는 에어스트림', pet: true,
+    guests: [2, 4], size: '약 26㎡', sizeSub: '8평', bed: null,
+    story: '제돌이는 서울대공원에서 공연하던 제주 돌고래의 이름이에요. 반려견과 함께 묵을 수 있는 에어스트림이에요.',
+    amen: AIRSTREAM_AMEN,
+    photos: [['cover', 'rooms/jedori/cover-01.jpg', '불이 켜진 저녁의 에어스트림']],
+    related: [['taesani', '태산이', '에어스트림 · 반려견'], ['nolmeong', '놀멍', '프리미엄 · 반려견'], ['gorae', '고래', '가성비 · 반려견']]
+  }
+};
+const CATS = [['all', '전체'], ['bath', '욕실'], ['bedroom', '침실'], ['kitchen', '주방'], ['deck', '데크'], ['view', '전망'], ['pet', '반려견']];
+
+const I = {
+  toilet: '<path d="M6 3h7v7H6zM4 10h15a6 6 0 0 1-6 6h-3a6 6 0 0 1-6-6zM9 16l-1 5h8l-1-5"/>',
+  grill: '<path d="M4 10h16a8 8 0 0 1-16 0zM8 18l-2 4M16 18l2 4M9 3c1 1.5-1 2.5 0 4M13 3c1 1.5-1 2.5 0 4"/>',
+  wave: '<path d="M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 20c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M7 9c2-4 7-5 10-2"/>',
+  users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5a5 5 0 0 1 5.5 5"/>',
+  child: '<circle cx="8" cy="6" r="3"/><circle cx="17" cy="10" r="2"/><path d="M3 21v-3a5 5 0 0 1 10 0v3M14 21v-2a3 3 0 0 1 6 0v2"/>',
+  heart: '<path d="M12 20s-8-4.6-8-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 8 2.8C20 15.4 12 20 12 20z"/>',
+  ruler: '<path d="M3 16 16 3l5 5L8 21zM7 12l2 2M10 9l2 2M13 6l2 2"/>',
+  bed: '<path d="M3 18V7M3 13h18v5M21 13a3 3 0 0 0-3-3h-7v3"/><circle cx="7" cy="11" r="1.6"/>',
+  paw: '<circle cx="6.5" cy="10" r="1.8"/><circle cx="10.5" cy="6" r="1.8"/><circle cx="15.5" cy="7" r="1.8"/><circle cx="18.5" cy="11.5" r="1.8"/><path d="M8 17.5c0-3 2.5-5.5 4.5-5.5s4.5 2.5 4.5 5.5c0 2-2 2.5-4.5 2.5S8 19.5 8 17.5z"/>',
+  phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
+  share: '<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/>',
+  shower: '<path d="M5 21V8a4 4 0 0 1 7.5-2M10 8h7a3.5 3.5 0 0 0-7 0M11 12v1M14 12v1M17 12v1M12 15v1M15 15v1"/>',
+  bath: '<path d="M3 12h18v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5zM6 12V5a2 2 0 0 1 4 0M7 19l-1 2M17 19l1 2"/>',
+  spa: '<path d="M3 15h18M5 15a7 4 0 0 0 14 0M8 11c0-2 2-2 2-4M12 11c0-2 2-2 2-4M16 11c0-2 2-2 2-4"/>',
+  snow: '<path d="M12 2v20M4 7l16 10M20 7 4 17M9 3l3 2 3-2M9 21l3-2 3 2"/>',
+  flame: '<path d="M12 22a6 6 0 0 0 6-6c0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-3-2 2-3 4-3 7a6 6 0 0 0 6 6z"/>',
+  fridge: '<rect x="6" y="2" width="12" height="20" rx="2"/><path d="M6 9h12M9 5v2M9 12v3"/>',
+  micro: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M5 8h10v8H5zM18 9v1M18 13v1"/>',
+  pot: '<path d="M4 10h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4zM2 10h20M10 6h4"/>',
+  table: '<path d="M3 8h18M6 8v12M18 8v12M6 14h12"/>',
+  ext: '<path d="M9 8h6v13H9zM12 8V4h4M10 4h2M15 6l3-1"/>',
+  alarm: '<circle cx="12" cy="13" r="7"/><path d="M12 10v3l2 2M5 4 2 7M19 4l3 3"/>',
+  sun: '<circle cx="12" cy="15" r="4"/><path d="M2 19h20M12 5v3M5 9l2 2M19 9l-2 2M2 15h2M20 15h2"/>',
+  bike: '<circle cx="6" cy="16" r="4"/><circle cx="18" cy="16" r="4"/><path d="M6 16l4-8h5l3 8M9 8h3M15 8l-3 8"/>',
+  box: '<path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10"/>',
+  pin: '<path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/>',
+  copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
+  back: '<path d="M15 5l-7 7 7 7"/>',
+  menu: '<path d="M4 7h16M4 12h16M4 17h10"/>',
+  close: '<path d="M6 6l12 12M18 6 6 18"/>',
+  next: '<path d="M9 5l7 7-7 7"/>',
+  prev: '<path d="M15 5l-7 7 7 7"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  camera: '<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',
+  leaf: '<path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15M5 19l7-7"/>',
+  insta: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/>'
+};
+const svg = k => `<svg viewBox="0 0 24 24" aria-hidden="true">${I[k]}</svg>`;
+const img = (p, alt, eager) => `<img src="${IMG(p)}" alt="${alt}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'}>`;
+
+/* 일몰 시각: suncalc와 같은 계산식(외부 API 없음). 실제 사이트에서는 suncalc 패키지를 써요 */
+function sunsetAt(date, lat, lng) {
+  const rad = Math.PI / 180, dayMs = 864e5, J1970 = 2440588, J2000 = 2451545;
+  const d = date.valueOf() / dayMs - 0.5 + J1970 - J2000;
+  const lw = rad * -lng, phi = rad * lat;
+  const n = Math.round(d - 0.0009 - lw / (2 * Math.PI));
+  const ds = 0.0009 + lw / (2 * Math.PI) + n;
+  const M = rad * (357.5291 + 0.98560028 * ds);
+  const C = rad * (1.9148 * Math.sin(M) + 0.02 * Math.sin(2 * M) + 0.0003 * Math.sin(3 * M));
+  const L = M + C + rad * 102.9372 + Math.PI;
+  const dec = Math.asin(Math.sin(L) * Math.sin(rad * 23.4397));
+  const w = Math.acos((Math.sin(-0.833 * rad) - Math.sin(phi) * Math.sin(dec)) / (Math.cos(phi) * Math.cos(dec)));
+  const a = 0.0009 + (w + lw) / (2 * Math.PI) + n;
+  const J = J2000 + a + 0.0053 * Math.sin(M) - 0.0069 * Math.sin(2 * L);
+  return new Date((J + 0.5 - J1970) * dayMs);
+}
+const hm = d => d.toLocaleTimeString('ko-KR', { timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit', hour12: false });
+function sunInfo() {
+  const now = new Date();
+  let set = sunsetAt(now, SITE.lat, SITE.lng), today = true;
+  if (set < now) { set = sunsetAt(new Date(now.valueOf() + 864e5), SITE.lat, SITE.lng); today = false; }
+  const mins = Math.round((set - now) / 6e4);
+  const left = today
+    ? (mins < 60 ? `${mins}분 뒤에 해가 져요` : `${Math.floor(mins / 60)}시간 ${mins % 60}분 뒤에 해가 져요`)
+    : '오늘 노을은 졌어요. 내일 노을 시각이에요';
+  return { time: hm(set), today, left };
+}
+
+function bookingButtons(cls = '') {
+  return SITE.booking.filter(b => b.url).map((b, i) =>
+    `<a class="btn ${i === 0 ? 'pri' : 'ghost'} ${cls}" href="${b.url}" target="_blank" rel="noopener" data-track="booking:${b.key}">${b.label}</a>`).join('');
+}
+function dock(fromText) {
+  return `<div class="dock">
+    <div class="from">${fromText}</div>
+    ${bookingButtons()}
+    <a class="btn ghost call" href="tel:${SITE.phone.replace(/-/g, '')}" aria-label="전화하기 ${SITE.phone}" data-toast="전화 ${SITE.phone} (상담 ${SITE.hours})">${svg('phone')}</a>
+  </div>`;
+}
+const footer = () => `<footer class="foot">
+  <b style="color:var(--ink)">선셋코스트 카라반 &amp; 캠핑장</b>
+  <span>${SITE.address}</span>
+  <span>대표 김태현 · 사업자등록번호 278-27-01574</span>
+  <span>예약·문의 ${SITE.phone} (${SITE.hours})</span>
+  <span>제휴 숙소 스테이디앤디 풀빌라</span>
+</footer>`;
+
+/* ---------- 홈 ---------- */
+function homeA() {
+  const s = sunInfo();
+  return `<div class="scr">
+  <div class="hbar"><span class="brand">SUNSET COAST</span><button class="iconbtn" aria-label="메뉴">${svg('menu')}</button></div>
+  <div class="hero">${img('site/hero/hero-01.jpg', '해 질 녘 캠핑장 카라반 너머로 지는 해', true)}
+    <div class="cap"><h1>창문을 열면 바다,<br>운이 좋으면 돌고래.</h1></div></div>
+  <div class="sunrow">
+    <div class="sun">${svg('sun')}<span>${s.today ? '오늘 노을' : '내일 노을'}</span><b>${s.time}</b></div>
+    ${bookingButtons()}
+  </div>
+  <div class="assure">
+    <div>${svg('toilet')}<b>개별 화장실</b><span>카라반마다 따로 있어요</span></div>
+    <div>${svg('grill')}<b>개별 바베큐 데크</b><span>우리 데크에서 구워요</span></div>
+    <div>${svg('wave')}<b>바다 앞 1분</b><span>돌고래 해변까지 걸어서</span></div>
+  </div>
+  <section class="sec">
+    <span class="ex">예시 · 상단 고정 소식이 있을 때만 보여요</span>
+    <div class="news"><div class="fr">${img('site/dolphin/dolphin-02.jpg', '앞바다를 지나가는 돌고래 무리')}</div>
+      <div><span class="label">돌고래 소식</span><b style="display:block">오늘 아침 돌고래 봤어요</b><p>관리자가 휴대폰으로 올린 소식이 여기에 나와요.</p></div></div>
+  </section>
+  <section class="sec">
+    <span class="label">ROOMS</span>
+    <h2>14동의 카라반, 세 가지 머무는 방법</h2>
+    ${TIERS.map(t => `<a class="tier" href="#">
+      <div class="fr">${img(t.img, t.name + ' 대표 사진')}</div>
+      <div class="row"><h3>${t.name}</h3><span class="tbd" style="font-size:12.5px">요금 준비 중</span></div>
+      <p>${t.desc} · ${t.rooms}</p>
+      <div class="badges"><span class="chip wc">${svg('toilet')}개별 화장실</span><span class="chip">오션뷰</span></div>
+    </a>`).join('')}
+  </section>
+  <section class="sec">
+    <h2>누구와 오세요?</h2>
+    <div class="who">
+      <a href="#">${svg('child')}아이와 함께<span>3~4명 객실</span></a>
+      <a href="#">${svg('heart')}둘이서<span>2명 객실</span></a>
+      <a href="#">${svg('paw')}반려견과<span>6동 가능</span></a>
+    </div>
+  </section>
+  <section class="sec">
+    <span class="label">DOLPHINS</span>
+    <h2>영락리 바다는 남방큰돌고래가 사는 곳이에요</h2>
+    <p class="lead">에어스트림 다섯 동에는 제주 돌고래의 이름을 붙였어요.</p>
+    <div class="story">
+      <div class="fr">${img('site/dolphin/dolphin-01.jpg', '청록색 바다를 헤엄치는 남방큰돌고래')}</div>
+      <ul class="names">
+        <li><b>수애기</b><span class="mute">제주 서남부 바다</span></li>
+        <li><b>곰새기</b><span class="mute">제주 동북부 바다</span></li>
+        <li><b>제돌이</b><span class="mute">서울대공원에서 공연하던 돌고래</span></li>
+        <li><b>태산이<br>춘삼이</b><span class="mute">바다로 돌아간 돌고래</span></li>
+      </ul>
+    </div>
+  </section>
+  <section class="sec">
+    <span class="label">STAY</span>
+    <h2>머무는 동안 할 수 있는 것</h2>
+    <div class="fun">
+      <div>${svg('grill')}<div><b>개별 바베큐</b><p>숯과 그릴 30,000원. 우리 데크에서, 밤 11시 전까지.</p></div></div>
+      <div>${svg('bike')}<div><b>브롬톤 자전거</b><p>투숙객 2시간 무료. 4대뿐이라 이용이 어려울 수 있어요.</p></div></div>
+      <div>${svg('box')}<div><b>밀키트 배달</b><p>카라반까지 가져다드려요. <span class="tbd">메뉴와 가격 준비 중</span></p></div></div>
+    </div>
+    <div class="season"><span class="label">가을</span><span class="ex">예시 · 계절 카드</span><b class="disp" style="font-size:17px">해가 빨리 지는 계절이에요</b><span class="mute" style="font-size:12.5px">오늘 노을은 ${s.time}. 바베큐 불은 노을 전에 붙여 두세요.</span></div>
+  </section>
+  <section class="sec">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><h2>인스타그램</h2><a href="https://www.instagram.com/${SITE.insta}/" target="_blank" rel="noopener" style="font-size:12.5px">@${SITE.insta}</a></div>
+    <div class="insta">${['site/night/night-01.jpg', 'site/hero/hero-03.jpg', 'site/dolphin/dolphin-03.jpg', 'site/facility/picnic-01.jpg', 'site/night/night-03.jpg', 'site/hero/hero-04.jpg']
+      .map(p => `<div>${img(p, '선셋코스트 사진')}</div>`).join('')}</div>
+  </section>
+  <section class="sec">
+    <h2>오시는 길</h2>
+    <div class="loc">
+      <div class="addr"><span>${SITE.address}</span><button class="iconbtn" aria-label="주소 복사" data-copy="${SITE.address}">${svg('copy')}</button></div>
+      <div class="two"><a class="btn ghost" href="https://map.naver.com/p/search/${encodeURIComponent(SITE.address)}" target="_blank" rel="noopener">네이버 지도</a><a class="btn ghost" href="https://map.kakao.com/?q=${encodeURIComponent(SITE.address)}" target="_blank" rel="noopener">카카오맵</a></div>
+      <span class="mute" style="font-size:12.5px">입실 ${SITE.checkin} · 퇴실 ${SITE.checkout} · 밤 10시 이후 도착은 미리 연락 주세요</span>
+    </div>
+  </section>
+  ${footer()}
+  ${dock('<b>예약·문의</b>' + SITE.phone)}
+</div>`;
+}
+
+function homeB() {
+  const s = sunInfo();
+  return `<div class="scr">
+  <div class="hbar over"><span class="brand">SUNSET COAST</span><button class="iconbtn" aria-label="메뉴">${svg('menu')}</button></div>
+  <div class="hero">${img('site/hero/hero-02.jpg', '해 질 녘 캠핑장 너머로 지는 해', true)}
+    <div class="over">
+      <span class="when">${s.today ? 'TODAY SUNSET · 오늘 노을' : 'TOMORROW · 내일 노을'}</span>
+      <span class="big">${s.time}</span>
+      <span class="left">${s.left}</span>
+      <h1>노을이 머무는 바다 앞,<br>우리만의 작은 집</h1>
+      <div style="display:flex;gap:8px">${bookingButtons()}</div>
+    </div></div>
+  <div class="glow">
+    <div class="row">${svg('toilet')}<div><b>화장실은 우리 카라반 안에</b><span>모든 카라반에 개별 화장실이 있어요</span></div></div>
+    <div class="row">${svg('grill')}<div><b>바베큐는 우리 데크에서</b><span>카라반마다 개별 데크가 있어요</span></div></div>
+    <div class="row">${svg('wave')}<div><b>돌고래 해변까지 1분</b><span>걸어서 바로 바다예요</span></div></div>
+  </div>
+  <section class="sec" style="padding-left:20px;padding-right:20px">
+    <span class="label">ROOMS · 14동</span>
+    <h2>어떤 카라반에서 머물까요?</h2>
+  </section>
+  <div class="cards" style="margin-top:14px">
+    ${TIERS.map(t => `<a class="card" href="#">${img(t.img, t.name + ' 대표 사진')}
+      <div class="t"><div class="badges"><span class="chip wc">${svg('toilet')}개별 화장실</span></div><h3>${t.name}</h3><p>${t.desc}</p><p>${t.rooms}</p><p style="opacity:.75">요금 준비 중</p></div></a>`).join('')}
+  </div>
+  <div class="navy">
+    <h2>누구와 오세요?</h2>
+    <a href="#">아이와 함께 <span>3~4명 객실 ›</span></a>
+    <a href="#">둘이서 <span>2명 객실 ›</span></a>
+    <a href="#">반려견과 함께 <span>6동 ›</span></a>
+  </div>
+  <div class="bleed">${img('site/dolphin/dolphin-04.jpg', '앞바다를 헤엄치는 남방큰돌고래 무리')}
+    <div class="t"><h2>영락리 앞바다의 남방큰돌고래</h2><p>객실 이름 다섯 개는 이 바다의 돌고래에게서 왔어요.</p></div></div>
+  <div class="namecards">
+    <div><b>수애기</b>제주 서남부 바다</div>
+    <div><b>곰새기</b>제주 동북부 바다</div>
+    <div><b>제돌이</b>서울대공원에서 공연하던 제주 돌고래</div>
+    <div><b>태산이</b>바다로 돌아간 돌고래</div>
+    <div><b>춘삼이</b>바다로 돌아간 돌고래</div>
+  </div>
+  <section class="sec">
+    <h2>머무는 동안</h2>
+    <div class="tiles">
+      <div><div class="fr">${img('site/facility/bbq-01.jpg', '숯불 바베큐')}</div><div class="t"><b>개별 바베큐</b>숯+그릴 30,000원 · 밤 11시까지</div></div>
+      <div><div class="noimg">${svg('bike')}</div><div class="t"><b>브롬톤 자전거</b>4대 · 2시간 무료 · 선착순</div></div>
+      <div><div class="noimg">${svg('box')}</div><div class="t"><b>밀키트 배달</b><span class="tbd">메뉴 준비 중</span></div></div>
+      <div><div class="fr">${img('site/night/night-02.jpg', '저녁 불빛이 켜진 캠핑장')}</div><div class="t"><b>가을</b><span class="ex">예시</span> 노을 ${s.time}, 바베큐는 그 전에</div></div>
+    </div>
+  </section>
+  <section class="sec"><h2>소식과 사진</h2></section>
+  <div class="feed" style="margin-top:14px">
+    <div class="news"><div class="fr">${img('site/dolphin/dolphin-02.jpg', '돌고래 무리')}</div><div class="t"><span class="label">돌고래 소식</span><b>오늘 아침 돌고래 봤어요</b><span class="ex">예시</span></div></div>
+    ${['site/night/night-01.jpg', 'site/hero/hero-03.jpg', 'site/night/night-03.jpg'].map(p => `<div>${img(p, '선셋코스트 인스타그램 사진')}</div>`).join('')}
+  </div>
+  <section class="sec">
+    <h2>오시는 길</h2>
+    <div class="loc">
+      <div><div><span class="k">주소</span>${SITE.address}</div><button class="iconbtn" aria-label="주소 복사" data-copy="${SITE.address}">${svg('copy')}</button></div>
+      <div><div><span class="k">길찾기</span><a href="https://map.naver.com/p/search/${encodeURIComponent(SITE.address)}" target="_blank" rel="noopener">네이버 지도</a> · <a href="https://map.kakao.com/?q=${encodeURIComponent(SITE.address)}" target="_blank" rel="noopener">카카오맵</a></div></div>
+      <div><div><span class="k">입실 · 퇴실</span>${SITE.checkin} · ${SITE.checkout}</div></div>
+      <div><div><span class="k">예약·문의</span>${SITE.phone} (${SITE.hours})</div></div>
+    </div>
+  </section>
+  ${footer()}
+  ${dock('<b>예약·문의</b>' + SITE.phone)}
+</div>`;
+}
+
+/* ---------- 객실 상세 ---------- */
+function facts(r) {
+  return `<div class="facts">
+    <div>${svg('users')}<b>${r.guests[0]}/${r.guests[1]}명</b><span>기준/최대</span></div>
+    <div>${svg('ruler')}<b>${r.size}</b><span>${r.sizeSub}</span></div>
+    <div>${svg('bed')}<b class="${r.bed ? '' : 'tbd'}">${r.bed || '확인 중'}</b><span>침대</span></div>
+    <div>${svg('paw')}<b>${r.pet ? '가능' : '불가'}</b><span>반려견</span></div>
+  </div>`;
+}
+function gallery(r, slug, cat) {
+  const counts = Object.fromEntries(CATS.map(([k]) => [k, k === 'all' ? r.photos.length : r.photos.filter(p => p[0] === k).length]));
+  const tabs = CATS.filter(([k]) => k === 'all' || k === 'bath' || counts[k] > 0)
+    .map(([k, l]) => `<button class="tab" aria-pressed="${k === cat}" data-cat="${k}" data-room="${slug}">${l}<span class="n">${counts[k]}</span></button>`).join('');
+  let list = cat === 'all' ? r.photos : r.photos.filter(p => p[0] === cat);
+  const shots = list.map((p, i) => `<button class="shot" data-lb="${r.photos.indexOf(p)}" data-room="${slug}"><div class="fr">${img(p[1], p[2], i === 0)}</div><span class="cap">${p[2]}</span></button>`);
+  const placeholder = `<div class="ready">${svg('camera')}<b>욕실 사진 준비 중</b>이 객실에도 개별 화장실이 있어요.<br>사진은 곧 올라와요.</div>`;
+  if (counts.bath === 0) {
+    if (cat === 'all') shots.splice(1, 0, placeholder);
+    if (cat === 'bath') shots.push(placeholder);
+  }
+  return { tabs, shots: shots.join('') };
+}
+function detailCommon(r) {
+  return `
+  <section class="sec"><span class="label">STORY</span><h2>${r.name}의 이야기</h2><p style="margin:0">${r.story}</p></section>
+  <section class="sec"><h2>시설</h2>
+    <div class="amen">${r.amen.map(([k, l, key]) => `<div class="${key ? 'key' : ''}">${svg(k)}${l}</div>`).join('')}</div></section>
+  <section class="sec"><h2>요금</h2>
+    <table class="rate"><tbody>
+      ${['주중 (일~목)', '금요일', '주말 (토 · 공휴일 전날)', '성수기'].map(s => `<tr><td>${s}</td><td class="tbd">준비 중</td></tr>`).join('')}
+    </tbody></table>
+    <p class="mute" style="margin:0;font-size:12.5px">기준 인원 초과 시 성인·아동 1인 20,000원, 24개월 미만 1명 무료.<br>실제 요금과 예약 가능 여부는 예약 페이지 기준이에요.</p></section>
+  <section class="sec"><h2>알아두세요</h2>
+    <ul class="know">
+      <li>${svg('clock')}<span>입실 ${SITE.checkin}, 퇴실 ${SITE.checkout}. 밤 10시 이후 도착은 미리 연락 주세요.</span></li>
+      <li>${svg('grill')}<span>바베큐와 큰 소리는 밤 11시까지예요.</span></li>
+      <li>${svg('users')}<span>최대 ${r.guests[1]}명을 넘으면 입실과 환불이 안 돼요.</span></li>
+      ${r.pet ? `<li>${svg('paw')}<span>반려견 동반 가능 객실이에요. <span class="tbd">크기 · 마리 수 · 추가 요금 준비 중</span></span></li>` : ''}
+    </ul></section>
+  <section class="sec"><h2>함께 보면 좋은 객실</h2></section>
+  <div class="rel" style="margin-top:14px">${r.related.map(([s, n, sub]) => `<a href="#"><div class="fr">${img(`rooms/${s}/cover-01.jpg`, n + ' 대표 사진')}</div><b>${n}</b><span class="mute" style="font-size:12px">${sub}</span></a>`).join('')}</div>
+  ${footer()}`;
+}
+function detailA(slug, cat = 'all') {
+  const r = ROOMS[slug], g = gallery(r, slug, cat);
+  return `<div class="scr">
+  <div class="hbar over"><button class="iconbtn" aria-label="객실 목록으로">${svg('back')}</button><button class="iconbtn" aria-label="카카오톡으로 공유" data-toast="카카오톡 공유 (실제 사이트에서 동작)">${svg('share')}</button></div>
+  <div class="dhero">${img(r.photos[0][1], r.photos[0][2], true)}
+    <div class="cap"><span class="label" style="color:#FFC98E">${r.tier}</span><h1>${r.name}</h1><p>${r.copy}</p>
+      <div class="badges"><span class="chip wc">${svg('toilet')}개별 화장실</span><span class="chip">오션뷰</span>${r.pet ? `<span class="chip">${svg('paw')}반려견</span>` : ''}</div></div></div>
+  ${facts(r)}
+  <section class="sec" style="padding-left:0;padding-right:0"><h2 style="padding:0 20px">공간 둘러보기</h2>
+    <div class="tabs-g">${g.tabs}</div><div class="strip">${g.shots}</div></section>
+  ${detailCommon(r)}
+  ${dock('<b>요금 준비 중</b>예약 페이지에서 확인')}
+</div>`;
+}
+function detailB(slug, cat = 'all') {
+  const r = ROOMS[slug], g = gallery(r, slug, cat);
+  return `<div class="scr">
+  <div class="hbar over"><button class="iconbtn" aria-label="객실 목록으로">${svg('back')}</button><button class="iconbtn" aria-label="카카오톡으로 공유" data-toast="카카오톡 공유 (실제 사이트에서 동작)">${svg('share')}</button></div>
+  <div class="dhero">${img(r.photos[0][1], r.photos[0][2], true)}
+    <div class="t"><span class="tier">${r.tier.toUpperCase()}</span><h1>${r.name}</h1><p>${r.copy}</p>
+      <div class="badges"><span class="chip wc">${svg('toilet')}개별 화장실</span><span class="chip">오션뷰</span>${r.pet ? `<span class="chip">${svg('paw')}반려견</span>` : ''}</div></div></div>
+  ${facts(r)}
+  <section class="sec" style="padding-left:0;padding-right:0"><h2 style="padding:0 20px">공간 둘러보기</h2>
+    <div class="tabs-g">${g.tabs}</div><div class="ggrid">${g.shots}</div></section>
+  ${detailCommon(r)}
+  ${dock('<b>요금 준비 중</b>예약 페이지에서 확인')}
+</div>`;
+}
+
+/* ---------- 바깥 페이지 ---------- */
+const DIRS = {
+  a: { cls: 'A', name: 'A안 · 엽서', home: homeA, detail: detailA,
+    pitch: '여백 안에 사진을 엽서처럼 놓아요. 정보가 줄과 칸으로 차분하게 정리돼서, 처음 온 엄마 고객이 객실을 비교하기 쉬워요.',
+    points: ['대표 사진은 둥근 모서리 액자, 그 아래에 오늘 노을과 예약 버튼', '안심 포인트는 얇은 선으로 나눈 세 칸', '객실은 세로로 쌓은 카드라 스크롤만 하면 돼요', '제목 서체: 고운바탕 (부드러운 명조)'],
+    swatches: [['모래빛 배경', '#F6EFE4'], ['노을 코랄', '#D9654B'], ['앰버', '#E39A2D'], ['딥블루', '#1E4A66'], ['밤바다(다크)', '#0E1A24']],
+    font: ['Gowun Batang', '노을이 머무는 바다 앞'] },
+  b: { cls: 'B', name: 'B안 · 노을 시간표', home: homeB, detail: detailB,
+    pitch: '사진을 화면 끝까지 채우고, 오늘 노을 시각을 가장 큰 글자로 둬요. 인스타그램에서 넘어온 고객에게 분위기가 바로 전해져요.',
+    points: ['첫 화면 전체가 노을 사진, 그 위에 "17:42" 같은 큰 시각', '안심 포인트는 코랄·앰버 그라데이션 띠', '객실과 소식은 옆으로 넘기는 카드', '제목 서체: 함렛 (가는 굵기의 명조)'],
+    swatches: [['노을빛 배경', '#FFF6EE'], ['코랄', '#EA5F45'], ['앰버', '#F29B38'], ['밤바다 네이비', '#132C47'], ['밤바다(다크)', '#0A1320']],
+    font: ['Hahmlet', '노을이 머무는 바다 앞'] }
+};
+let state = { dir: 'a', room: 'suaegi' };
+const catState = {};
+
+function render() {
+  const d = DIRS[state.dir];
+  document.querySelectorAll('.tabs a').forEach(a => a.setAttribute('aria-current', a.dataset.dir === state.dir));
+  document.getElementById('dir').innerHTML = `
+    <div class="about">
+      <div><h2>${d.name}</h2><p style="margin:0">${d.pitch}</p><ul>${d.points.map(p => `<li>${p}</li>`).join('')}</ul></div>
+      <div class="tokens">
+        <div class="sw">${d.swatches.map(([n, c]) => `<span><i style="background:${c}"></i>${n}</span>`).join('')}</div>
+        <div class="typeset"><b style="font-family:'${d.font[0]}',serif">${d.font[1]}</b>제목 ${d.font[0]} · 본문 Pretendard (시안에선 Noto Sans KR)</div>
+      </div>
+    </div>
+    <div class="phones">
+      <div class="col"><h3>홈</h3><div class="ph ${d.cls}" id="ph-home">${d.home()}</div></div>
+      <div class="col"><h3>객실 상세</h3>
+        <div class="switch" role="group" aria-label="객실 선택">
+          <button data-room="suaegi" aria-pressed="${state.room === 'suaegi'}">수애기 · 욕실 사진 있음</button>
+          <button data-room="jedori" aria-pressed="${state.room === 'jedori'}">제돌이 · 욕실 사진 없음</button>
+        </div>
+        <div class="ph ${d.cls}" id="ph-detail">${d.detail(state.room, catState[state.room] || 'all')}</div></div>
+    </div>`;
+}
+function rerenderDetail() {
+  const d = DIRS[state.dir], ph = document.getElementById('ph-detail');
+  const top = ph.querySelector('.scr').scrollTop;
+  ph.innerHTML = d.detail(state.room, catState[state.room] || 'all');
+  ph.querySelector('.scr').scrollTop = top;
+}
+function toast(ph, msg) {
+  ph.querySelector('.toast')?.remove();
+  const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; ph.appendChild(t);
+  setTimeout(() => t.remove(), 1800);
+}
+function lightbox(ph, slug, idx) {
+  const r = ROOMS[slug];
+  const box = document.createElement('div'); box.className = 'lb'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', '사진 크게 보기');
+  const draw = () => {
+    const p = r.photos[idx];
+    box.innerHTML = `<div class="lbtop"><span>${idx + 1} / ${r.photos.length}</span><button class="iconbtn" data-x aria-label="닫기">${svg('close')}</button></div>
+      <div class="lbimg"><img src="${IMG(p[1])}" alt="${p[2]}"></div>
+      <div class="lbcap"><button class="iconbtn" data-p aria-label="이전 사진">${svg('prev')}</button><span>${p[2]}</span><button class="iconbtn" data-n aria-label="다음 사진">${svg('next')}</button></div>`;
+    box.querySelector('[data-x]').focus();
+  };
+  box.addEventListener('click', e => {
+    if (e.target.closest('[data-x]')) return box.remove();
+    if (e.target.closest('[data-p]')) { idx = (idx - 1 + r.photos.length) % r.photos.length; draw(); }
+    if (e.target.closest('[data-n]')) { idx = (idx + 1) % r.photos.length; draw(); }
+  });
+  box.addEventListener('keydown', e => { if (e.key === 'Escape') box.remove(); });
+  ph.appendChild(box); draw();
+}
+document.addEventListener('click', e => {
+  const sw = e.target.closest('.switch button');
+  if (sw) { state.room = sw.dataset.room; document.querySelectorAll('.switch button').forEach(b => b.setAttribute('aria-pressed', b === sw)); rerenderDetail(); return; }
+  const tab = e.target.closest('.tab');
+  if (tab) { catState[tab.dataset.room] = tab.dataset.cat; rerenderDetail(); return; }
+  const shot = e.target.closest('.shot');
+  if (shot) { lightbox(shot.closest('.ph'), shot.dataset.room, +shot.dataset.lb); return; }
+  const cp = e.target.closest('[data-copy]');
+  if (cp) {
+    const ph = cp.closest('.ph');
+    navigator.clipboard?.writeText(cp.dataset.copy).then(() => toast(ph, '주소를 복사했어요'), () => toast(ph, cp.dataset.copy));
+    return;
+  }
+  const tt = e.target.closest('[data-toast]');
+  if (tt) { e.preventDefault(); toast(tt.closest('.ph'), tt.dataset.toast); return; }
+  const inner = e.target.closest('.ph a[href="#"]');
+  if (inner) { e.preventDefault(); toast(inner.closest('.ph'), '시안에서는 이동하지 않아요'); }
+});
+function fromHash() { const h = location.hash.replace('#', ''); state.dir = DIRS[h] ? h : 'a'; render(); }
+window.addEventListener('hashchange', fromHash);
+fromHash();
+</script>
