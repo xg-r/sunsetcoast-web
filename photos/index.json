@@ -965,6 +965,14 @@
         "w": 1600,
         "h": 900
       }
+    ],
+    "bike": [
+      {
+        "file": "site/facility/bike-01.jpg",
+        "source": "sunsetcoast.kr/html/img/sub4_special2_img_2.jpg",
+        "w": 625,
+        "h": 740
+      }
     ]
   },
   "site/tier": {

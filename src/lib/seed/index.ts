@@ -328,7 +328,7 @@ export const SEED: Omit<SiteData, 'rooms'> & { rooms: RoomSeed[] } = {
   ],
   services: [
     { key: 'bbq', name: '개별 바베큐', icon: 'grill', summary: '우리 카라반 데크에서 바베큐를 해요.', howTo: ['카라반마다 개별 데크가 있어요.', '바베큐는 밤 11시까지예요.', '객실 안에서는 불을 쓸 수 없어요.'], price: '숯 + 그릴 30,000원', image: 'site/facility/bbq-01' },
-    { key: 'bike', name: '브롬톤 자전거', icon: 'bike', summary: '해안도로를 따라 달려요.', howTo: ['투숙객에게 2시간 무료로 빌려드려요.', '4대뿐이라 선착순이고, 이용이 어려울 수 있어요.'], price: '투숙객 2시간 무료', image: null },
+    { key: 'bike', name: '브롬톤 자전거', icon: 'bike', summary: '해안도로를 따라 달려요.', howTo: ['투숙객에게 2시간 무료로 빌려드려요.', '4대뿐이라 선착순이고, 이용이 어려울 수 있어요.'], price: '투숙객 2시간 무료', image: 'site/facility/bike-01' },
   ],
   commonFacilities: ['남·녀 탈의실과 샤워실', '공용 화장실', '공동 취사장', '세탁실', '긴급대피소'],
   tours: [
