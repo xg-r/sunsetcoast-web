@@ -176,7 +176,6 @@ export const SEED: Omit<SiteData, 'rooms'> & { rooms: RoomSeed[] } = {
       description: '제주도 서귀포 바다 앞 애견동반 카라반 캠핑장. 오션뷰 카라반 14동 중 6동은 반려견과 함께 묵을 수 있고, 모든 카라반에 개별 화장실과 바베큐 데크가 있어요. 노을 명소, 돌고래 해변까지 걸어서 1분.',
       naverVerification: '7de1f85df29dacd5552bb2c5dcf187e860a30240',
     },
-    analyticsId: null, // [확인 필요 G7] GA4 측정 ID
     seasonCards: [],
   },
   tiers: [

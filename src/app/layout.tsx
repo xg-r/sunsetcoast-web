@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="main" className="pb-24">{children}</main>
         <SiteFooter />
-        <Analytics gaId={settings.analyticsId} />
+        <Analytics gaId={process.env.NEXT_PUBLIC_GA_ID || null} host={process.env.NEXT_PUBLIC_GA_HOST || null} />
       </body>
     </html>
   );

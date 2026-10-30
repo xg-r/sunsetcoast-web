@@ -218,7 +218,6 @@ export interface SiteSettings {
   heroImage: string;
   heroCopy: string;
   seo: { title: string; description: string; naverVerification: string };
-  analyticsId: string | null;
   seasonCards: SeasonCard[];
 }
 

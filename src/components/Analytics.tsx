@@ -20,9 +20,12 @@ export function track(name: string, params: Record<string, string> = {}) {
  * data-track="이벤트명" 이 붙은 링크·버튼의 클릭을 한곳에서 기록한다.
  * 예약·전화 버튼은 서버에서 그린 HTML 그대로 두고, 이 컴포넌트만 브라우저에서 동작한다.
  */
-export function Analytics({ gaId }: { gaId: string | null }) {
+/** GA4 측정 ID는 환경별로 .env.development / .env.production 에서 정한다 (README "환경 변수") */
+export function Analytics({ gaId, host }: { gaId: string | null; host: string | null }) {
   useEffect(() => {
-    if (gaId && !window.gtag) {
+    // host가 정해져 있으면 그 도메인에서만 보낸다. 로컬에서 운영 빌드를 띄워도(npm run serve) 운영 통계에 섞이지 않는다
+    const onHost = !host || location.hostname === host || location.hostname.endsWith(`.${host}`);
+    if (gaId && onHost && !window.gtag) {
       const s = document.createElement('script');
       s.async = true;
       s.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
@@ -43,6 +46,6 @@ export function Analytics({ gaId }: { gaId: string | null }) {
     };
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);
-  }, [gaId]);
+  }, [gaId, host]);
   return null;
 }

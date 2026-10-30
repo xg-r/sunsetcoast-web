@@ -23,6 +23,8 @@ npm run mock       # 백엔드 목 서버 (http://localhost:8080/sunset-time)
 
 | 이름 | 용도 |
 |---|---|
+| `NEXT_PUBLIC_GA_ID` | GA4 측정 ID. 운영은 `.env.production`(G-0EYXLRZ2BJ), 개발은 `.env.development`(비움 → 콘솔 로그만) |
+| `NEXT_PUBLIC_GA_HOST` | 이 도메인에서 열렸을 때만 GA4를 불러온다 (운영: `sunsetcoast.kr`). 로컬에서 `npm run serve`로 띄운 운영 빌드는 보내지 않는다 |
 | `NEXT_PUBLIC_API_BASE_URL` | 백엔드 주소. 로컬은 `http://localhost:8080`(목 서버). 빌드 때 JS에 들어간다. 비우면 노을 시각을 숨긴다 |
 
 ## 백엔드 API
