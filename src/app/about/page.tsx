@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BookingDock } from '@/components/BookingDock';
+import { MediaAppearances } from '@/components/MediaAppearances';
 import { Photo } from '@/components/Photo';
 import { getSiteData } from '@/lib/data';
 import { firstSentence } from '@/lib/rooms';
@@ -17,6 +18,7 @@ export const metadata = pageMeta(data, {
 export default function AboutPage() {
   const airstreams = data.rooms.filter((r) => r.tierKey === 'airstream' && r.visible);
   const premium = data.rooms.filter((r) => r.tierKey === 'premium' && r.visible);
+  const media = [...data.media].sort((a, b) => a.sortOrder - b.sortOrder);
   return (
     <>
       <section className="wrap flex flex-col gap-4 pt-6">
@@ -55,6 +57,15 @@ export default function AboutPage() {
           </ul>
         </div>
       </section>
+      {media.length > 0 && (
+        <section id="tv" className="wrap mt-16 flex scroll-mt-24 flex-col gap-6">
+          <div className="flex flex-col gap-1">
+            <span className="eyebrow">on tv</span>
+            <h2 className="h2">방송에 나온 선셋코스트</h2>
+          </div>
+          <MediaAppearances media={media} />
+        </section>
+      )}
       <BookingDock />
     </>
   );

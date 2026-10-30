@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { BookingDock } from '@/components/BookingDock';
 import { Icon } from '@/components/Icon';
+import { programLabel } from '@/components/MediaAppearances';
 import { Photo } from '@/components/Photo';
 import { PostCard } from '@/components/PostCard';
 import { ReviewCard, ReviewSource } from '@/components/ReviewCard';
@@ -25,6 +26,7 @@ export default function HomePage() {
   const [l1, l2] = s.heroCopy.split('\n');
   const insta = `https://www.instagram.com/${s.instagram}/`;
   const reviews = data.reviews.filter((r) => r.featured).sort((a, b) => a.sortOrder - b.sortOrder);
+  const media = [...data.media].sort((a, b) => a.sortOrder - b.sortOrder);
 
   return (
     <>
@@ -83,6 +85,16 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
+        {media.length > 0 && (
+          <Link href="/about/#tv" className="mt-3 flex items-center gap-3 rounded-3xl border border-line px-4 py-3.5">
+            <Icon name="tv" className="size-5 shrink-0 text-coral" />
+            <span className="min-w-0 flex-1 text-[13.5px] leading-snug">
+              <b>{media.map(programLabel).join(' · ')}</b>
+              <span className="text-mute">에 나온 캠핑장이에요</span>
+            </span>
+            <Icon name="next" className="size-4 shrink-0 text-mute" />
+          </Link>
+        )}
       </section>
 
       {/* 3. 상단 고정 공지·이벤트 (있을 때만) */}

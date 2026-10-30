@@ -122,6 +122,21 @@ export interface Review {
   sortOrder: number;
 }
 
+/**
+ * media — 캠핑장이 나온 방송.
+ * 방송 캡처는 저작권 때문에 쓰지 않는다. 영상은 방송사·제작사 공식 유튜브만 넣는다 (사이트 안에서 재생).
+ */
+export interface MediaAppearance {
+  id: string;
+  broadcaster: string; // JTBC
+  program: string; // 끝사랑
+  episode: string | null; // 8회
+  airedAt: string; // YYYY-MM-DD
+  summary: string;
+  youtubeId: string | null; // 공식 채널 영상 ID (watch?v= 뒤 11자)
+  sortOrder: number;
+}
+
 /** policies */
 export interface Policies {
   checkIn: string;
@@ -207,6 +222,7 @@ export interface SiteData {
   petPolicy: PetPolicy;
   posts: Post[];
   reviews: Review[];
+  media: MediaAppearance[];
   policies: Policies;
   faqs: Faq[];
   services: Service[];

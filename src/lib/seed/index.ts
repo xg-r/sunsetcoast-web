@@ -269,6 +269,13 @@ export const SEED: Omit<SiteData, 'rooms'> & { rooms: RoomSeed[] } = {
       keywords: ['침구가 좋아요', '뷰가 좋아요', '조용히 쉬기 좋아요'],
       body: '바다 전망이 너무 좋고 조용하게 힐링하기 좋은 곳이에요! 🌊 숙소에서 바다를 바라보며 여유롭게 시간을 보낼 수 있고, 노을 질 때 분위기도 정말 좋을 것 같아요. 색다른 카라반 숙박을 경험하고 싶은 분들께 추천하고 싶어요.' },
   ],
+  // 2026-10-30 운영자 제공. 출연자 이름은 운영자가 사용 가능하다고 확인
+  media: [
+    { id: 'kkeutsarang-08', broadcaster: 'JTBC', program: '끝사랑', episode: '8회', airedAt: '2024-10-10', youtubeId: 'gOwxj6SDsOg', sortOrder: 1,
+      summary: '정은주 님과 우형준 님이 머문 숙소로 나왔어요. 두 분이 바다 앞에서 노을을 보며 이야기를 나누는 장면도 이곳에서 찍었어요.' },
+    { id: 'gosuyeoljeon-92', broadcaster: 'SBS', program: '고수열전', episode: '92회', airedAt: '2025-07-27', youtubeId: '0759uBk08ec', sortOrder: 2,
+      summary: "'카라반 캠핑장의 고수'로 현장을 맡고 있는 추은석 사장님이 나왔어요. 캠핑장 곳곳과 사장님이 일하는 모습이 담겼어요." },
+  ],
   policies: {
     checkIn: '15:00~22:00',
     checkInNote: '밤 10시 이후 도착은 미리 연락 주세요.',
