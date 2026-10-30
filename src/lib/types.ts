@@ -137,6 +137,18 @@ export interface MediaAppearance {
   sortOrder: number;
 }
 
+/**
+ * groupRental — 캠핑장 전체 대관. 요금은 공개하지 않고 전화로 문의받는다.
+ * 이용 사례의 단체 이름은 그 단체의 동의를 받은 경우에만 적는다.
+ */
+export interface GroupRental {
+  guestsBase: number;
+  guestsMax: number; // 추가 인원 포함
+  features: string[];
+  neighborNote: string | null; // 옆 숙소(다른 사업자)와 함께 쓰는 경우 안내
+  cases: { who: string; stay: string }[];
+}
+
 /** policies */
 export interface Policies {
   checkIn: string;
@@ -223,6 +235,7 @@ export interface SiteData {
   posts: Post[];
   reviews: Review[];
   media: MediaAppearance[];
+  groupRental: GroupRental;
   policies: Policies;
   faqs: Faq[];
   services: Service[];

@@ -8,12 +8,12 @@ import { faqJsonLd, jsonLd, pageMeta } from '@/lib/seo';
 const data = getSiteData();
 export const metadata = pageMeta(data, {
   title: '예약 안내',
-  description: '선셋코스트 예약 방법, 애견동반 요금과 규정, 추가 인원 요금, 이용·환불 규정과 자주 묻는 질문. 모든 카라반에 개별 화장실이 있어요.',
+  description: '선셋코스트 예약 방법, 애견동반 요금과 규정, 추가 인원 요금, 이용·환불 규정, 워크숍·단체 전체 대관(최대 50명)과 자주 묻는 질문. 모든 카라반에 개별 화장실이 있어요.',
   path: '/reservation/',
 });
 
 export default function ReservationPage() {
-  const { settings: s, policies: p, extraPersonFee: fee } = data;
+  const { settings: s, policies: p, extraPersonFee: fee, groupRental: g } = data;
   const booking = bookingFor(data);
   return (
     <>
@@ -22,7 +22,7 @@ export default function ReservationPage() {
         <span className="eyebrow">book your stay</span>
         <h1 className="h2">예약 안내</h1>
         <nav aria-label="이 페이지 목차" className="no-scrollbar -mx-5 flex gap-1.5 overflow-x-auto px-5 text-[13px]">
-          {[['how', '예약 방법'], ['pet', '반려견 동반'], ['rates', '요금'], ['rules', '이용 규정'], ['refund', '환불 규정'], ['faq', '자주 묻는 질문']].map(([id, l]) => (
+          {[['how', '예약 방법'], ['pet', '반려견 동반'], ['rates', '요금'], ['rules', '이용 규정'], ['refund', '환불 규정'], ['group', '전체 대관'], ['faq', '자주 묻는 질문']].map(([id, l]) => (
             <a key={id} href={`#${id}`} className="shrink-0 rounded-full border border-line bg-surface px-3.5 py-1.5">{l}</a>
           ))}
         </nav>
@@ -117,6 +117,46 @@ export default function ReservationPage() {
           <ul className="flex flex-col gap-1 text-[13px] text-mute">
             {p.refundNotes.map((n) => <li key={n}>{n}</li>)}
           </ul>
+        </section>
+
+        <section id="group" className="card flex scroll-mt-20 flex-col gap-5 p-5 md:col-span-2 md:grid md:grid-cols-[1fr_1fr] md:gap-x-12 md:p-8">
+          <div className="flex flex-col gap-3">
+            <span className="eyebrow">group stay</span>
+            <h2 className="h2">캠핑장 전체 대관</h2>
+            <p className="text-[14px]">
+              워크숍, 단체 여행, 행사로 카라반 {data.rooms.filter((r) => r.visible).length}동과 캠핑장 전체를 빌릴 수 있어요.
+              기준 <b>{g.guestsBase}명</b>, 추가 인원까지 <b>{g.guestsMax}명</b>이 묵을 수 있어요.
+            </p>
+            {g.neighborNote && <p className="text-[13px] text-mute">{g.neighborNote}</p>}
+            <div className="mt-1 flex flex-col gap-1.5">
+              <a href={`tel:${s.phone.replaceAll('-', '')}`} className="btn btn-primary self-start" data-track="call_click" data-context="group">
+                <Icon name="phone" className="size-4" />
+                대관 문의 {s.phone}
+              </a>
+              <p className="text-[13px] text-mute">요금은 날짜와 인원에 따라 달라서 전화로 안내해 드려요 · {s.phoneHours}</p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-2">
+              <h3 className="text-[13px] font-semibold text-mute">함께 준비할 수 있어요</h3>
+              <ul className="flex flex-wrap gap-1.5">
+                {g.features.map((f) => <li key={f} className="chip">{f}</li>)}
+              </ul>
+            </div>
+            {g.cases.length > 0 && (
+              <div className="flex flex-col gap-2">
+                <h3 className="text-[13px] font-semibold text-mute">이렇게 이용했어요</h3>
+                <ul className="flex flex-col text-[14px]">
+                  {g.cases.map((c) => (
+                    <li key={c.who} className="flex flex-wrap justify-between gap-x-3 border-b border-line py-2.5">
+                      <span>{c.who}</span>
+                      <span className="text-mute">{c.stay}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </section>
 
         <section id="faq" className="flex scroll-mt-20 flex-col gap-3 md:col-span-2">
