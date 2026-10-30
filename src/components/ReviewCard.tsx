@@ -43,7 +43,6 @@ export function ReviewSource() {
           <Icon name="next" className="size-4" />
         </a>
       )}
-      <p className="text-[12px] text-mute">네이버 방문자 리뷰에서 옮겼어요. 맞춤법만 다듬고, 일부만 옮긴 리뷰도 있어요.</p>
     </div>
   );
 }
