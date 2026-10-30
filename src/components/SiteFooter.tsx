@@ -33,6 +33,7 @@ export function SiteFooter() {
               s.partner.name
             )}
           </span>
+          <Link href="/privacy/" className="mt-2 self-start font-semibold text-ink underline underline-offset-2">개인정보처리방침</Link>
         </div>
         <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
           {MENU.slice(1).map((m) => (
