@@ -1,14 +1,8 @@
-// 빌드 시점에 사이트 데이터를 읽는 유일한 입구.
-// 백엔드 API가 설정돼 있으면 scripts/fetch-site-data.mjs가 빌드 전에 받아 둔 src/generated/site-data.json을 읽고,
-// 없으면 seed를 쓴다. 계약: docs/api/site-data.md
-// 방문자 브라우저는 이 데이터를 HTML로만 받으므로 DB나 백엔드를 직접 호출하지 않는다.
-import fs from 'node:fs';
-import path from 'node:path';
+// 빌드 시점에 사이트 데이터를 읽는 유일한 입구. 데이터 원본은 src/lib/seed 다 (DB 없음, 코드에서 관리).
+// 방문자 브라우저는 이 데이터를 HTML로만 받는다.
 import images from '@/generated/images.json';
 import { CAPTIONS, SEED } from './seed';
 import type { PhotoCategory, Room, RoomImage, SiteData } from './types';
-
-const API_FILE = path.join(process.cwd(), 'src', 'generated', 'site-data.json');
 
 const CATEGORY_ORDER: PhotoCategory[] = ['cover', 'bath', 'bedroom', 'kitchen', 'deck', 'view', 'exterior', 'pet'];
 
@@ -24,8 +18,8 @@ function roomImagesFromPhotos(slug: string): RoomImage[] {
     .sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
-/** seed를 API 응답과 같은 모양으로 만든다 (scripts/export-seed.mjs가 목 데이터를 만들 때도 쓴다) */
-export function seedSiteData(): SiteData {
+/** seed에 객실 사진 목록 같은 계산 값을 채워 화면이 쓰는 모양으로 만든다 */
+function seedSiteData(): SiteData {
   const rooms: Room[] = SEED.rooms.map((r, i) => ({
     ...r,
     privateToilet: true, // 모든 카라반에 개별 화장실 (운영자 확인)
@@ -41,7 +35,5 @@ export function seedSiteData(): SiteData {
 let cache: SiteData | null = null;
 
 export function getSiteData(): SiteData {
-  if (cache) return cache;
-  cache = fs.existsSync(API_FILE) ? (JSON.parse(fs.readFileSync(API_FILE, 'utf8')) as SiteData) : seedSiteData();
-  return cache;
+  return (cache ??= seedSiteData());
 }

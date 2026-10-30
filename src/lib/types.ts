@@ -1,4 +1,4 @@
-// 사이트 데이터 타입. 백엔드 `GET /site-data` 응답 모양의 기준 (docs/api/site-data.md).
+// 사이트 데이터 타입. 원본은 src/lib/seed.
 // 값이 아직 없으면 null — 화면은 null을 "준비 중"으로 표시하고 지어낸 값을 넣지 않는다.
 
 export type PhotoCategory = 'cover' | 'exterior' | 'bedroom' | 'bath' | 'kitchen' | 'deck' | 'view' | 'pet';
@@ -171,7 +171,7 @@ export interface Tour {
   kidFriendly: boolean;
 }
 
-/** site_settings.booking_platforms — 관리자에서 추가·정렬. url이 빈 플랫폼은 버튼을 숨긴다 */
+/** site_settings.booking_platforms — 배열 순서대로 버튼이 나온다. url이 빈 플랫폼은 버튼을 숨긴다 */
 export interface BookingPlatform {
   key: string;
   label: string;

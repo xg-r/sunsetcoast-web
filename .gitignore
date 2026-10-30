@@ -11,5 +11,3 @@ public/og/
 src/generated/
 .cache/
 .env.local
-# 빌드 전에 백엔드에서 받은 사이트 데이터 (npm run data)
-src/generated/site-data.json

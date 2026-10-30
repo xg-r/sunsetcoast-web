@@ -1,5 +1,5 @@
 // 초기 데이터(seed). 현재 sunsetcoast.kr과 개발 지시서, 운영자 답변(docs/01-questions.md)에서 확인한 값만 넣는다.
-// 모르는 값은 null 또는 빈 배열로 둔다. 4단계에서 이 내용을 Supabase에 그대로 넣고, 이후로는 DB가 원본이 된다.
+// 모르는 값은 null 또는 빈 배열로 둔다. DB 없이 이 파일이 데이터 원본이다 (고친 뒤 다시 빌드·배포).
 import location from '../../../data/location.json';
 import type { Amenity, Room, SiteData } from '../types';
 
@@ -32,7 +32,7 @@ const value = (slug: string, name: string, copy: string, extra: Partial<RoomSeed
 });
 
 // 객실 이야기: 첫 문장은 이름의 유래(홈·소개 페이지에는 이 문장만 나옴), 이어서 이 객실에서 보내는 하루.
-// 운영자 요청으로 임의 작성 (2026-10-27). 관리자 화면에서 고칠 수 있다.
+// 운영자 요청으로 임의 작성 (2026-10-27). 운영자가 고쳐 달라고 하면 여기서 고친다.
 const ROOMS: RoomSeed[] = [
   premium('nolmeong', '놀멍', '통창 앞 바다를 보며 놀멍, 반려견과 함께',
     '놀멍은 제주어로 "놀면서"라는 뜻이에요. 늦잠을 자고 일어나 통창 너머 바다를 보다가, 반려견과 해안도로를 한 바퀴 걸어요. 오후엔 데크에서 놀다가 해가 지면 고기를 구워요.',
@@ -83,7 +83,7 @@ const ROOMS: RoomSeed[] = [
   }),
 ];
 
-/** 사진 캡션. key가 없으면 "객실명 · 카테고리"로 표시한다 (관리자에서 입력) */
+/** 사진 캡션. key가 없으면 "객실명 · 카테고리"로 표시한다 */
 export const CAPTIONS: Record<string, string> = {
   'rooms/suaegi/cover-01': '은빛 에어스트림과 개별 데크',
   'rooms/suaegi/bath-01': '창 아래 놓인 둥근 욕조',
@@ -193,7 +193,7 @@ export const SEED: Omit<SiteData, 'rooms'> & { rooms: RoomSeed[] } = {
     { key: 'peakWeekend', name: '성수기 주말', description: '토요일, 법정공휴일 전날', sortOrder: 4 },
   ],
   peakPeriods: [],
-  // 2026-10-28 운영자 제공 요금표 (비수기 평일 / 비수기 주말 / 성수기 평일 / 성수기 주말). 4단계부터는 백엔드 DB에서 관리
+  // 2026-10-28 운영자 제공 요금표 (비수기 평일 / 비수기 주말 / 성수기 평일 / 성수기 주말)
   rates: Object.entries({
     nolmeong: [230000, 250000, 290000, 290000],
     mulmeong: [230000, 250000, 290000, 290000],

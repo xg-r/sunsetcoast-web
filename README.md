@@ -1,9 +1,9 @@
 # 선셋코스트 홈페이지
 
 선셋코스트 카라반 & 캠핑장 고객 사이트. Next.js 정적 export → S3 + CloudFront.
-방문자는 빌드된 HTML만 받고 DB나 백엔드를 호출하지 않는다 (백엔드가 멈춰도 사이트는 정상). 노을 시각만 브라우저에서 받는다.
+데이터(객실·사진·요금·규정·리뷰·방송)는 DB 없이 `src/lib/seed`에서 관리하고, 고친 뒤 다시 빌드·배포한다. 방문자는 빌드된 HTML만 받는다. 노을 시각만 브라우저에서 백엔드에 묻는다.
 
-> 진행 상황: 3단계(고객 페이지, seed 데이터) 완료. 4단계: 데이터 원본(DB)과 관리자 기능은 **백엔드**가 맡고, 사이트는 빌드 때 `GET /site-data`로 받는다 (계약·목 서버 준비됨).
+> 진행 상황: 3단계(고객 페이지, seed 데이터) 완료. DB·관리자 화면은 만들지 않는다 (필요해지면 그때 개발). 다음은 5단계 배포.
 
 ## 로컬 실행
 
@@ -14,8 +14,7 @@ npm install
 npm run dev        # 이미지 생성 후 개발 서버 (http://localhost:3000)
 npm run build      # 이미지 생성 + 정적 빌드 → out/
 npm run serve      # out/ 을 CloudFront처럼 서빙 (http://localhost:4173)
-npm run mock       # 백엔드 목 서버 (http://localhost:8080/sunset-time, /site-data)
-npm run mock:data  # seed → mocks/site-data.json (목 서버가 응답할 사이트 데이터)
+npm run mock       # 백엔드 목 서버 (http://localhost:8080/sunset-time)
 ```
 
 처음 한 번 `.env.example`을 `.env.local`로 복사한다.
@@ -25,8 +24,6 @@ npm run mock:data  # seed → mocks/site-data.json (목 서버가 응답할 사�
 | 이름 | 용도 |
 |---|---|
 | `NEXT_PUBLIC_API_BASE_URL` | 백엔드 주소. 로컬은 `http://localhost:8080`(목 서버). 빌드 때 JS에 들어간다. 비우면 노을 시각을 숨긴다 |
-| `SITE_DATA_API_URL` | 사이트 데이터 API 주소. 빌드 때만 쓰고 브라우저에는 안 들어간다. 비우면 seed로 빌드 |
-| `SITE_DATA_TOKEN` | 위 API의 토큰 (`Authorization: Bearer`). 목 서버는 `dev-token` |
 
 ## 백엔드 API
 
@@ -35,7 +32,6 @@ npm run mock:data  # seed → mocks/site-data.json (목 서버가 응답할 사�
 | 엔드포인트 | 쓰는 곳 | 계약 |
 |---|---|---|
 | `GET /sunset-time` | 홈의 오늘 노을 시각 (브라우저에서) | `docs/api/sunset-time.md` |
-| `GET /site-data` | 객실·사진·요금·규정·리뷰 전체 (빌드 때만) | `docs/api/site-data.md` |
 
 장애 확인: `MOCK_MODE=error|slow|invalid`로 목 서버를 띄운다 (Windows cmd는 `set MOCK_MODE=error&& npm run mock`).
 `design/_tools/sunset-check.mjs`가 다섯 경우(정상·오류·지연·형식 오류·서버 없음)를 자동으로 확인한다.
@@ -45,10 +41,9 @@ npm run mock:data  # seed → mocks/site-data.json (목 서버가 응답할 사�
 | 경로 | 내용 |
 |---|---|
 | `src/app/` | 페이지 (홈, 객실 목록·상세·비교, 시설, 예약 안내, 소식, 오시는 길, 소개) |
-| `src/lib/types.ts` | 데이터 타입. `GET /site-data` 응답 모양의 기준 |
-| `src/lib/seed/` | 초기 데이터. 확인된 값만, 모르는 값은 null |
-| `src/lib/data.ts` | 빌드 때 데이터를 읽는 유일한 입구. 받아 둔 API 데이터가 있으면 그것, 없으면 seed |
-| `scripts/fetch-site-data.mjs` | 빌드 전에 `GET /site-data`를 받아 검사하고 `src/generated/site-data.json`에 저장 (`npm run data`) |
+| `src/lib/types.ts` | 데이터 타입 |
+| `src/lib/seed/` | 사이트 데이터 원본. 확인된 값만, 모르는 값은 null |
+| `src/lib/data.ts` | 빌드 때 데이터를 읽는 유일한 입구 (seed + 사진 목록) |
 | `src/lib/rooms.ts` | "~원부터", 필터, 함께 보면 좋은 객실 등 계산 |
 | `photos/` | 원본 사진. 파일명 규칙은 `photos/README.md` |
 | `data/location.json` | 캠핑장 좌표 (지도·구조화 데이터) |

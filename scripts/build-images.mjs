@@ -4,8 +4,6 @@
 // - 목록: src/generated/images.json (페이지가 srcset을 만들 때 읽는다)
 // - 파일명에 원본 내용의 해시가 들어가므로 CloudFront에서 1년 캐시해도 안전하고,
 //   이미 만든 파일은 다시 만들지 않는다 (사진이 바뀐 것만 새로 인코딩).
-//
-// 4단계부터는 원본이 Supabase Storage에 있으므로, 빌드 전에 photos/ 로 내려받은 뒤 이 스크립트를 그대로 쓴다.
 import sharp from 'sharp';
 import crypto from 'node:crypto';
 import fs from 'node:fs';

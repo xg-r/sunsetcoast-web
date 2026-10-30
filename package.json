@@ -4,13 +4,11 @@
   "type": "module",
   "scripts": {
     "images": "node scripts/build-images.mjs",
-    "data": "node scripts/fetch-site-data.mjs",
-    "dev": "npm run data && npm run images && next dev",
-    "build": "npm run data && npm run images && next build",
+    "dev": "npm run images && next dev",
+    "build": "npm run images && next build",
     "serve": "node scripts/serve-out.mjs",
     "typecheck": "tsc --noEmit",
-    "mock": "node scripts/mock-backend.mjs",
-    "mock:data": "node scripts/export-seed.mjs"
+    "mock": "node scripts/mock-backend.mjs"
   },
   "dependencies": {
     "next": "16.4.3",
