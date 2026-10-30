@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import { getSiteData } from '@/lib/data';
 import { MENU } from '@/lib/menu';
+import { partnerUrl } from '@/lib/seo';
 
 export function SiteFooter() {
-  const { settings: s } = getSiteData();
+  const data = getSiteData();
+  const { settings: s } = data;
+  const partner = partnerUrl(data, 'footer');
   return (
     <footer className="border-t border-line pb-32 pt-10 text-[13px] text-mute">
       <div className="wrap grid gap-8 md:grid-cols-[1.5fr_1fr]">
@@ -24,8 +27,8 @@ export function SiteFooter() {
               @{s.instagram}
             </a>
             {' · '}제휴 숙소{' '}
-            {s.partner.url ? (
-              <a className="underline underline-offset-2" href={s.partner.url} target="_blank" rel="noopener">{s.partner.name}</a>
+            {partner ? (
+              <a className="underline underline-offset-2" href={partner} target="_blank" rel="noopener" data-track="partner_click" data-placement="footer">{s.partner.name}</a>
             ) : (
               s.partner.name
             )}

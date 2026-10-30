@@ -3,7 +3,7 @@ import { CopyButton } from '@/components/CopyButton';
 import { Icon } from '@/components/Icon';
 import { getSiteData } from '@/lib/data';
 import { bookingFor, won } from '@/lib/rooms';
-import { faqJsonLd, jsonLd, pageMeta } from '@/lib/seo';
+import { faqJsonLd, jsonLd, pageMeta, partnerUrl } from '@/lib/seo';
 
 const data = getSiteData();
 export const metadata = pageMeta(data, {
@@ -15,6 +15,7 @@ export const metadata = pageMeta(data, {
 export default function ReservationPage() {
   const { settings: s, policies: p, extraPersonFee: fee, groupRental: g } = data;
   const booking = bookingFor(data);
+  const partner = partnerUrl(data, 'group_rental');
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(data))} />
@@ -127,7 +128,19 @@ export default function ReservationPage() {
               워크숍, 단체 여행, 행사로 카라반 {data.rooms.filter((r) => r.visible).length}동과 캠핑장 전체를 빌릴 수 있어요.
               기준 <b>{g.guestsBase}명</b>, 추가 인원까지 <b>{g.guestsMax}명</b>이 묵을 수 있어요.
             </p>
-            {g.neighborNote && <p className="text-[13px] text-mute">{g.neighborNote}</p>}
+            {g.neighborNote && (
+              <p className="text-[13px] text-mute">
+                {g.neighborNote}
+                {partner && (
+                  <>
+                    {' '}
+                    <a href={partner} target="_blank" rel="noopener" className="font-semibold text-coral underline underline-offset-2" data-track="partner_click" data-placement="group_rental">
+                      {s.partner.name} 보기
+                    </a>
+                  </>
+                )}
+              </p>
+            )}
             <div className="mt-1 flex flex-col gap-1.5">
               <a href={`tel:${s.phone.replaceAll('-', '')}`} className="btn btn-primary self-start" data-track="call_click" data-context="group">
                 <Icon name="phone" className="size-4" />

@@ -164,7 +164,7 @@ export const SEED: Omit<SiteData, 'rooms'> & { rooms: RoomSeed[] } = {
     instagram: 'sunsetcoast_jeju',
     naverPlaceId: '1203944529',
     instagramPhotos: ['site/night/night-01', 'site/hero/hero-03', 'site/dolphin/dolphin-03', 'site/facility/picnic-01', 'site/night/night-03', 'site/hero/hero-04'],
-    partner: { name: '스테이디앤디 풀빌라', url: null },
+    partner: { name: '스테이디앤디 풀빌라', url: 'http://staydndpoolvilla.co.kr/html/index.html' },
     bookingPlatforms: [
       { key: 'ddnayo', label: '예약하기', url: 'http://www.ddnayo.com/RsvSys/?id_hotel=16384' },
       { key: 'naver', label: '네이버 예약', url: '' },
@@ -281,7 +281,8 @@ export const SEED: Omit<SiteData, 'rooms'> & { rooms: RoomSeed[] } = {
     guestsBase: 28,
     guestsMax: 50,
     features: ['잔디밭 행사', '단체 바베큐', '현수막 · 음향 장비', '케이터링', '반려견 동반', '행사 업체 연결'],
-    neighborNote: '옆에서 함께 운영하는 풀빌라와 원룸까지 더하면 50명이 넘어도 묵을 수 있어요. 풀빌라와 원룸은 사업자가 달라서 계약은 따로 해요.',
+    // 원룸 14실은 선셋코스트 사업자, 풀빌라 4동은 스테이디앤디 사업자 (상호는 둘 다 스테이디앤디)
+    neighborNote: '50명이 넘으면 옆 스테이디앤디의 원룸 14실과 풀빌라 4동을 더해 묵을 수 있어요.',
     cases: [
       { who: '지역 사회복지 단체', stay: '카라반 14동 · 2박' },
       { who: '기업', stay: '캠핑장 전체 · 2박, 옆 원룸 6실 함께' },

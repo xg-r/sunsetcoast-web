@@ -35,6 +35,15 @@ export const naverPlaceUrl = (data: SiteData, tab?: 'review') => {
   return `https://map.naver.com/p/entry/place/${id}${tab ? `?placePath=%2F${tab}` : ''}`;
 };
 
+/** 제휴 숙소 링크. 상대 사이트의 GA4가 유입 경로와 누른 위치를 알 수 있도록 UTM을 붙인다 */
+export const partnerUrl = (data: SiteData, placement: 'footer' | 'group_rental') => {
+  const base = data.settings.partner.url;
+  if (!base) return null;
+  const u = new URL(base);
+  u.search = new URLSearchParams({ utm_source: 'sunsetcoast', utm_medium: 'referral', utm_campaign: 'partner', utm_content: placement }).toString();
+  return u.toString();
+};
+
 /** 구조화 데이터: 웹사이트 이름 (구글 검색 결과의 사이트 이름) */
 export function websiteJsonLd(data: SiteData) {
   const s = data.settings;
