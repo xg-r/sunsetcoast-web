@@ -18,6 +18,8 @@ export function track(name: string, params: Record<string, string> = {}) {
 
 /**
  * data-track="이벤트명" 이 붙은 링크·버튼의 클릭을 한곳에서 기록한다.
+ * 나머지 data-* 는 이벤트 매개변수가 된다: platform(예약·지도 플랫폼), placement(페이지 안의 위치), room, video.
+ * GA4 보고서에서 보려면 관리 → 맞춤 정의에 같은 이름으로 맞춤 측정기준을 등록한다 (docs/analytics.md).
  * 예약·전화 버튼은 서버에서 그린 HTML 그대로 두고, 이 컴포넌트만 브라우저에서 동작한다.
  */
 /** GA4 측정 ID는 환경별로 .env.development / .env.production 에서 정한다 (README "환경 변수") */

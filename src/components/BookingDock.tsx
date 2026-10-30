@@ -34,6 +34,7 @@ export function BookingDock({ room, note }: { room?: Room; note?: React.ReactNod
             className={`btn ${i === 0 ? 'btn-primary' : 'btn-ghost'} ${i > 0 ? 'max-[380px]:hidden' : ''}`}
             data-track="booking_click"
             data-platform={p.key}
+            data-placement="dock"
             data-room={room?.slug ?? ''}
           >
             {p.label}
@@ -44,6 +45,7 @@ export function BookingDock({ room, note }: { room?: Room; note?: React.ReactNod
           className="btn btn-ghost w-[2.875rem] px-0"
           aria-label={`전화하기 ${s.phone}, 상담 ${s.phoneHours}`}
           data-track="call_click"
+          data-placement="dock"
           data-room={room?.slug ?? ''}
         >
           <Icon name="phone" />

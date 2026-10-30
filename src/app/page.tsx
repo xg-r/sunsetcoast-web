@@ -53,7 +53,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap gap-2">
             {booking.map((p, i) => (
-              <a key={p.key} href={p.url} target="_blank" rel="noopener" className={`btn ${i ? 'btn-ghost' : 'btn-primary'}`} data-track="booking_click" data-platform={p.key}>
+              <a key={p.key} href={p.url} target="_blank" rel="noopener" className={`btn ${i ? 'btn-ghost' : 'btn-primary'}`} data-track="booking_click" data-platform={p.key} data-placement="hero">
                 {p.label}
               </a>
             ))}
@@ -280,19 +280,19 @@ export default function HomePage() {
         <div className="flex flex-col items-center gap-1 text-center">
           <span className="eyebrow">on instagram</span>
           <h2 className="h2">요즘의 선셋코스트</h2>
-          <a href={insta} target="_blank" rel="noopener" className="flex items-center gap-1 text-[14px] text-mute" data-track="insta_click">
+          <a href={insta} target="_blank" rel="noopener" className="flex items-center gap-1 text-[14px] text-mute" data-track="insta_click" data-placement="insta_handle">
             <Icon name="insta" className="size-4" />@{s.instagram}
           </a>
         </div>
         {dolphinNews.length > 0 && <div className="flex flex-col gap-3">{dolphinNews.map((p) => <PostCard key={p.id} post={p} compact />)}</div>}
-        <a href={insta} target="_blank" rel="noopener" className="grid grid-cols-3 gap-1 overflow-hidden rounded-3xl md:grid-cols-6" aria-label="인스타그램에서 더 보기" data-track="insta_click">
+        <a href={insta} target="_blank" rel="noopener" className="grid grid-cols-3 gap-1 overflow-hidden rounded-3xl md:grid-cols-6" aria-label="인스타그램에서 더 보기" data-track="insta_click" data-placement="insta_grid">
           {s.instagramPhotos.map((k) => (
             <div key={k} className="aspect-square overflow-hidden bg-band">
               <Photo k={k} alt="선셋코스트 사진" sizes="(min-width:768px) 16vw, 33vw" />
             </div>
           ))}
         </a>
-        <a href={insta} target="_blank" rel="noopener" className="btn btn-ghost self-center" data-track="insta_click">
+        <a href={insta} target="_blank" rel="noopener" className="btn btn-ghost self-center" data-track="insta_click" data-placement="insta_follow">
           <Icon name="insta" className="size-4" />
           인스타그램 팔로우
         </a>
@@ -310,7 +310,7 @@ export default function HomePage() {
             입실 {data.policies.checkIn} · 퇴실 {data.policies.checkOut} · {data.policies.checkInNote}
           </p>
           <p className="text-[13.5px] text-mute">
-            예약·문의 <a href={`tel:${s.phone.replaceAll('-', '')}`} className="text-ink underline underline-offset-2">{s.phone}</a> ({s.phoneHours})
+            예약·문의 <a href={`tel:${s.phone.replaceAll('-', '')}`} className="text-ink underline underline-offset-2" data-track="call_click" data-placement="home_location">{s.phone}</a> ({s.phoneHours})
           </p>
           <Link href="/location/" className="flex items-center gap-1 self-start text-sm font-medium text-coral">
             길찾기와 주변 여행지 <Icon name="next" className="size-4" />

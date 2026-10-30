@@ -22,7 +22,7 @@ export default function NewsPage() {
         ) : (
           <p className="rounded-3xl border border-dashed border-line p-8 text-center text-sm text-mute">
             아직 올라온 소식이 없어요. 인스타그램{' '}
-            <a href={`https://www.instagram.com/${data.settings.instagram}/`} target="_blank" rel="noopener" className="text-coral underline">@{data.settings.instagram}</a>
+            <a href={`https://www.instagram.com/${data.settings.instagram}/`} target="_blank" rel="noopener" className="text-coral underline" data-track="insta_click" data-placement="news">@{data.settings.instagram}</a>
             에서 요즘 모습을 볼 수 있어요.
           </p>
         )}

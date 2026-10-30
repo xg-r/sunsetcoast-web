@@ -35,9 +35,9 @@ export default function ReservationPage() {
           <p className="text-[14px] text-mute">온라인으로 날짜를 골라 예약하거나, 전화로 편하게 물어봐 주세요.</p>
           <div className="flex flex-wrap gap-2">
             {booking.map((b, i) => (
-              <a key={b.key} href={b.url} target="_blank" rel="noopener" className={`btn ${i ? 'btn-ghost' : 'btn-primary'}`} data-track="booking_click" data-platform={b.key}>{b.label}</a>
+              <a key={b.key} href={b.url} target="_blank" rel="noopener" className={`btn ${i ? 'btn-ghost' : 'btn-primary'}`} data-track="booking_click" data-platform={b.key} data-placement="reservation_how">{b.label}</a>
             ))}
-            <a href={`tel:${s.phone.replaceAll('-', '')}`} className="btn btn-ghost" data-track="call_click">전화 {s.phone}</a>
+            <a href={`tel:${s.phone.replaceAll('-', '')}`} className="btn btn-ghost" data-track="call_click" data-placement="reservation_how">전화 {s.phone}</a>
           </div>
           <p className="text-[13px] text-mute">전화 상담 {s.phoneHours}</p>
           <div className="card mt-2 flex items-center justify-between gap-3 p-4 text-[14px]">
@@ -142,7 +142,7 @@ export default function ReservationPage() {
               </p>
             )}
             <div className="mt-1 flex flex-col gap-1.5">
-              <a href={`tel:${s.phone.replaceAll('-', '')}`} className="btn btn-primary self-start" data-track="call_click" data-context="group">
+              <a href={`tel:${s.phone.replaceAll('-', '')}`} className="btn btn-primary self-start" data-track="call_click" data-placement="group_rental">
                 <Icon name="phone" className="size-4" />
                 대관 문의 {s.phone}
               </a>

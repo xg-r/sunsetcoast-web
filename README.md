@@ -44,6 +44,7 @@ npm run mock       # 백엔드 목 서버 (http://localhost:8080/sunset-time)
 |---|---|
 | `src/app/` | 페이지 (홈, 객실 목록·상세·비교, 시설, 예약 안내, 소식, 오시는 길, 소개) |
 | `src/lib/types.ts` | 데이터 타입 |
+| `docs/analytics.md` | GA4: 인스타그램 유입 링크, 클릭 이벤트, GA4에서 해 둘 설정 |
 | `src/lib/seed/` | 사이트 데이터 원본. 확인된 값만, 모르는 값은 null |
 | `src/lib/data.ts` | 빌드 때 데이터를 읽는 유일한 입구 (seed + 사진 목록) |
 | `src/lib/rooms.ts` | "~원부터", 필터, 함께 보면 좋은 객실 등 계산 |

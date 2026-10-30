@@ -23,7 +23,7 @@ export function SiteFooter() {
           </span>
           <span>
             인스타그램{' '}
-            <a className="underline underline-offset-2" href={`https://www.instagram.com/${s.instagram}/`} target="_blank" rel="noopener">
+            <a className="underline underline-offset-2" href={`https://www.instagram.com/${s.instagram}/`} target="_blank" rel="noopener" data-track="insta_click" data-placement="footer">
               @{s.instagram}
             </a>
             {' · '}제휴 숙소{' '}
