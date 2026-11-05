@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { MENU } from '@/lib/menu';
+import { BrandMark } from './BrandMark';
 import { Icon } from './Icon';
 
 /** 객실 상세는 화면 폭 전체 사진 위에 헤더를 투명하게 겹쳐 놓는다 */
@@ -35,7 +36,8 @@ export function SiteHeader() {
       style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
     >
       <div className="wrap flex h-14 items-center justify-between">
-        <Link href="/" className="font-script text-[1.625rem] font-semibold leading-none" aria-label="선셋코스트 홈">
+        <Link href="/" className="flex items-center gap-2 font-script text-[1.625rem] font-semibold leading-none" aria-label="선셋코스트 홈">
+          <BrandMark className="size-7 shrink-0" />
           Sunset coast
         </Link>
         <nav className="hidden gap-1 text-sm md:flex" aria-label="주 메뉴">
