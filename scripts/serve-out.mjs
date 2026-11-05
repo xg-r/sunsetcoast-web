@@ -18,7 +18,7 @@ http.createServer((req, res) => {
   let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
   if (p.endsWith('/')) p += 'index.html';
   // Next 16 세그먼트 프리페치: __next.rooms.__PAGE__.txt → __next.rooms/__PAGE__.txt
-  // (CloudFront Function에도 같은 규칙이 필요하다 — 5단계)
+  // Windows 빌드만 이렇게 나뉜다. Linux(CI) 빌드는 요청 이름 그대로라 CloudFront에는 이 규칙이 없다 (infra/cloudfront-function.js)
   p = rewriteSegmentPrefetch(p);
   let file = path.join(ROOT, p);
   if (!file.startsWith(ROOT)) return res.writeHead(403).end();

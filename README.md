@@ -3,7 +3,7 @@
 선셋코스트 카라반 & 캠핑장 고객 사이트. Next.js 정적 export → S3 + CloudFront.
 데이터(객실·사진·요금·규정·리뷰·방송)는 DB 없이 `src/lib/seed`에서 관리하고, 고친 뒤 다시 빌드·배포한다. 방문자는 빌드된 HTML만 받는다. 노을 시각만 브라우저에서 백엔드에 묻는다.
 
-> 진행 상황: 3단계(고객 페이지, seed 데이터) 완료. DB·관리자 화면은 만들지 않는다 (필요해지면 그때 개발). 다음은 5단계 배포.
+> 진행 상황: 3단계(고객 페이지, seed 데이터) 완료. DB·관리자 화면은 만들지 않는다 (필요해지면 그때 개발). 5단계 배포: GitHub Actions 자동 배포 준비 완료, AWS 설정은 `docs/deploy.md`.
 
 ## 로컬 실행
 
@@ -38,6 +38,10 @@ npm run mock       # 백엔드 목 서버 (http://localhost:8080/sunset-time)
 장애 확인: `MOCK_MODE=error|slow|invalid`로 목 서버를 띄운다 (Windows cmd는 `set MOCK_MODE=error&& npm run mock`).
 `design/_tools/sunset-check.mjs`가 다섯 경우(정상·오류·지연·형식 오류·서버 없음)를 자동으로 확인한다.
 
+## 배포
+
+`main`에 push하면 GitHub Actions가 빌드해서 S3에 올리고 CloudFront 캐시를 비운다. AWS·GitHub 처음 설정과 캐시 규칙은 `docs/deploy.md`.
+
 ## 구조
 
 | 경로 | 내용 |
@@ -50,6 +54,8 @@ npm run mock       # 백엔드 목 서버 (http://localhost:8080/sunset-time)
 | `src/lib/rooms.ts` | "~원부터", 필터, 함께 보면 좋은 객실 등 계산 |
 | `photos/` | 원본 사진. 파일명 규칙은 `photos/README.md` |
 | `data/location.json` | 캠핑장 좌표 (지도·구조화 데이터) |
+| `.github/workflows/deploy.yml`, `scripts/deploy-s3.sh` | 자동 배포 (빌드 → S3 → CloudFront 무효화) |
+| `infra/cloudfront-function.js` | CloudFront Function: `/경로/` → `index.html`, 슬래시 없는 경로·www 리디렉션 |
 | `scripts/build-images.mjs` | 사진 → AVIF/WebP 4가지 크기 + OG 이미지. 해시 파일명, 바뀐 것만 다시 인코딩 |
 | `design/` | 2단계 시안, 스크린샷·동작 확인 스크립트(`design/_tools`) |
 
