@@ -66,6 +66,10 @@ jobs:
           key: images-${{ hashFiles('photos/**', 'scripts/build-images.mjs') }}
           restore-keys: images-
 
+      # src/generated/images.json(사진 목록)을 만든다. typecheck가 이 파일을 import하므로 먼저 돌린다.
+      # 이미 있는 사진은 건너뛰므로 build에서 한 번 더 돌아도 금방 끝난다.
+      - run: npm run images
+
       - run: npm run typecheck
 
       - run: npm run build
