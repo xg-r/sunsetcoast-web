@@ -57,8 +57,11 @@ jobs:
       - run: npm ci
 
       # 사진 인코딩(AVIF/WebP)이 빌드 시간 대부분이다. 결과를 캐시해 바뀐 사진만 다시 만든다.
-      - name: 이미지 캐시
-        uses: actions/cache@v4
+      # 복원과 저장을 나눈다: actions/cache 하나로 쓰면 작업이 끝까지 성공해야 저장돼서,
+      # 뒤 단계(AWS 로그인 등)가 실패할 때마다 사진 전체를 처음부터 다시 인코딩한다.
+      - name: 이미지 캐시 복원
+        id: image-cache
+        uses: actions/cache/restore@v4
         with:
           path: |
             public/img
@@ -69,6 +72,15 @@ jobs:
       # src/generated/images.json(사진 목록)을 만든다. typecheck가 이 파일을 import하므로 먼저 돌린다.
       # 이미 있는 사진은 건너뛰므로 build에서 한 번 더 돌아도 금방 끝난다.
       - run: npm run images
+
+      - name: 이미지 캐시 저장
+        if: steps.image-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            public/img
+            public/og
+          key: ${{ steps.image-cache.outputs.cache-primary-key }}
 
       - run: npm run typecheck
 
