@@ -2,7 +2,7 @@ import { getSiteData } from '@/lib/data';
 import { pageMeta } from '@/lib/seo';
 
 const data = getSiteData();
-export const metadata = { ...pageMeta(data, { title: '개인정보처리방침', description: `${data.settings.name} 홈페이지의 개인정보처리방침.`, path: '/privacy/' }), robots: { index: false } };
+export const metadata = { ...pageMeta(data, { title: '개인정보처리방침', description: `${data.settings.name} 홈페이지의 개인정보처리방침.`, path: '/privacy' }), robots: { index: false } };
 
 // 내용을 바꾸면 시행일도 바꾸고, 이전 방침은 git 기록으로 남긴다.
 // 보유 기간은 GA4 관리 → 데이터 수집 및 수정 → 데이터 보존 설정과 같아야 한다 (docs/analytics.md).

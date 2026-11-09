@@ -6,7 +6,7 @@ import { coverOf, fromPrice, fromPriceLabel, guestsLabel, sizeLabel } from '@/li
 import { pageMeta } from '@/lib/seo';
 
 const data = getSiteData();
-export const metadata = { ...pageMeta(data, { title: '객실 비교', path: '/rooms/compare/' }), robots: { index: false } };
+export const metadata = { ...pageMeta(data, { title: '객실 비교', path: '/rooms/compare' }), robots: { index: false } };
 
 export default function ComparePage() {
   const rows: CompareRow[] = data.rooms

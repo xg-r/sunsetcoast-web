@@ -20,7 +20,7 @@ export function ReviewCard({ review, showRoom = true }: { review: Review; showRo
       <figcaption className="flex flex-wrap items-center gap-x-1.5 border-t border-line pt-3 text-[12.5px] text-mute">
         {showRoom && room && (
           <>
-            <Link href={`/rooms/${room.slug}/`} className="font-semibold text-coral">{room.name}</Link>
+            <Link href={`/rooms/${room.slug}`} className="font-semibold text-coral">{room.name}</Link>
             <span aria-hidden>·</span>
           </>
         )}

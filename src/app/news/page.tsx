@@ -5,7 +5,7 @@ import { activePosts } from '@/lib/posts';
 import { pageMeta } from '@/lib/seo';
 
 const data = getSiteData();
-export const metadata = pageMeta(data, { title: '소식', description: '선셋코스트의 공지, 이벤트, 돌고래 소식.', path: '/news/' });
+export const metadata = pageMeta(data, { title: '소식', description: '선셋코스트의 공지, 이벤트, 돌고래 소식.', path: '/news' });
 
 export default function NewsPage() {
   const posts = activePosts(data);

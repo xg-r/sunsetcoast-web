@@ -9,7 +9,7 @@ const data = getSiteData();
 export const metadata = pageMeta(data, {
   title: '객실 · 제주 오션뷰 카라반 14동',
   description: `제주도 서귀포 바다 앞 오션뷰 카라반 ${data.rooms.filter((r) => r.visible).length}동, 애견동반 ${data.rooms.filter((r) => r.visible && r.petsAllowed).length}동. 스페이스카라반, 에어스트림, 스탠다드 중에서 반려견 동반, 인원으로 골라 보세요. 모든 카라반에 개별 화장실과 데크가 있어요.`,
-  path: '/rooms/',
+  path: '/rooms',
 });
 
 export default function RoomsPage() {

@@ -39,7 +39,7 @@ export function CompareTray({ names }: { names: Record<string, string> }) {
         <button type="button" onClick={clearCompare} className="px-2 py-2 text-xs opacity-70">
           비우기
         </button>
-        <Link href={`/rooms/compare/?r=${list.join(',')}`} className="btn btn-primary min-h-10 px-4 text-sm">
+        <Link href={`/rooms/compare?r=${list.join(',')}`} className="btn btn-primary min-h-10 px-4 text-sm">
           비교하기
         </Link>
       </div>

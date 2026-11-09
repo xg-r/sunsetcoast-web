@@ -22,7 +22,7 @@ export default function NotFound() {
           <Icon name="home" className="size-4" />
           홈으로
         </Link>
-        <Link href="/rooms/" className="btn btn-ghost">
+        <Link href="/rooms" className="btn btn-ghost">
           객실 보기
         </Link>
       </div>

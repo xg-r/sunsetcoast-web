@@ -1,4 +1,4 @@
-// 빌드 결과(out/)를 로컬에서 확인하는 정적 서버. S3 + CloudFront처럼 /path/ → /path/index.html 로 응답한다.
+// 빌드 결과(out/)를 로컬에서 확인하는 정적 서버. S3 + CloudFront처럼 /path → /path.html, /path/ → 301 /path 로 응답한다 (infra/cloudfront-function.js).
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -16,15 +16,14 @@ export function rewriteSegmentPrefetch(p) {
 
 http.createServer((req, res) => {
   let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
-  if (p.endsWith('/')) p += 'index.html';
+  if (p.length > 1 && p.endsWith('/')) return res.writeHead(301, { Location: p.replace(/\/+$/, '') }).end();
+  if (p === '/') p = '/index.html';
+  else if (!path.extname(p)) p += '.html';
   // Next 16 세그먼트 프리페치: __next.rooms.__PAGE__.txt → __next.rooms/__PAGE__.txt
   // Windows 빌드만 이렇게 나뉜다. Linux(CI) 빌드는 요청 이름 그대로라 CloudFront에는 이 규칙이 없다 (infra/cloudfront-function.js)
   p = rewriteSegmentPrefetch(p);
   let file = path.join(ROOT, p);
   if (!file.startsWith(ROOT)) return res.writeHead(403).end();
-  if (!fs.existsSync(file) && fs.existsSync(file + '/index.html')) {
-    return res.writeHead(301, { Location: p + '/' }).end();
-  }
   if (!fs.existsSync(file)) { res.statusCode = 404; file = path.join(ROOT, '404.html'); }
   res.setHeader('Content-Type', TYPES[path.extname(file)] ?? 'application/octet-stream');
   fs.createReadStream(file).pipe(res);

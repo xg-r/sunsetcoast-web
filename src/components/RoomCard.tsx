@@ -33,7 +33,7 @@ export function RoomCard({ room, compare = true }: { room: Room; compare?: boole
   const cover = coverOf(room);
   return (
     <article className="relative flex flex-col gap-2.5">
-      <Link href={`/rooms/${room.slug}/`} className="group flex flex-col gap-2.5">
+      <Link href={`/rooms/${room.slug}`} className="group flex flex-col gap-2.5">
         <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-band">
           {room.petsAllowed && (
             <span className="chip chip-key absolute left-3 top-3 z-10 !py-0.5">

@@ -27,7 +27,7 @@ jobs:
     timeout-minutes: 30
     environment:
       name: production
-      url: https://sunsetcoast.kr
+      url: https://www.sunsetcoast.kr
     env:
       AWS_REGION: ${{ vars.AWS_REGION || 'ap-northeast-2' }}
       S3_BUCKET: ${{ vars.S3_BUCKET }}

@@ -32,7 +32,7 @@ npm ci → 이미지 캐시 복원 → typecheck → npm run build (out/) → AW
 ### 3. CloudFront Function
 
 - 이름 `sunsetcoast-rewrite`, 런타임 **cloudfront-js-2.0**, 코드는 `infra/cloudfront-function.js` 그대로. 게시(Publish)까지.
-- 하는 일: `/rooms/` → `/rooms/index.html`, `/rooms` → 301 `/rooms/`, `www` → 301 `sunsetcoast.kr`.
+- 하는 일: `/rooms` → `/rooms.html`, `/rooms/` → 301 `/rooms`, `sunsetcoast.kr` → 301 `www.sunsetcoast.kr` (정규 주소는 www).
 
 ### 4. CloudFront 배포
 
@@ -63,12 +63,15 @@ npm ci → 이미지 캐시 복원 → typecheck → npm run build (out/) → AW
     "Condition": {
       "StringEquals": {
         "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-        "token.actions.githubusercontent.com:sub": "repo:xg-r/sunsetcoast-web:environment:production"
+        "token.actions.githubusercontent.com:sub": "repo:xg-r@96982575/sunsetcoast-web@1435488955:environment:production"
       }
     }
   }]
 }
 ```
+
+   `sub`는 GitHub의 고정 ID 형식(`소유자@ID/저장소@ID`)이다. 이 저장소는 immutable subject가 켜져 있어서 `repo:xg-r/sunsetcoast-web:…`로 쓰면 `Not authorized to perform sts:AssumeRoleWithWebIdentity`가 난다.
+   현재 형식 확인: `gh api repos/xg-r/sunsetcoast-web/actions/oidc/customization/sub` → `sub_claim_prefix` 뒤에 `:environment:production`을 붙인다.
 
 3. 권한 정책 (인라인):
 

@@ -11,7 +11,7 @@ export interface CompareRow {
   fields: Record<string, string | null>;
 }
 
-/** /rooms/compare/?r=nolmeong,suaegi,gorae — 링크로 공유해도 같은 비교가 열린다 */
+/** /rooms/compare?r=nolmeong,suaegi,gorae — 링크로 공유해도 같은 비교가 열린다 */
 export function CompareView({ rows }: { rows: CompareRow[] }) {
   const [slugs, setSlugs] = useState<string[] | null>(null);
   useEffect(() => {
@@ -24,7 +24,7 @@ export function CompareView({ rows }: { rows: CompareRow[] }) {
   if (!picked.length)
     return (
       <p className="mt-6 rounded-2xl border border-dashed border-line p-8 text-center text-sm text-mute">
-        비교할 객실이 없어요. <Link href="/rooms/" className="text-coral underline">객실 목록</Link>에서 &quot;비교 담기&quot;를 눌러 주세요.
+        비교할 객실이 없어요. <Link href="/rooms" className="text-coral underline">객실 목록</Link>에서 &quot;비교 담기&quot;를 눌러 주세요.
       </p>
     );
 
@@ -44,7 +44,7 @@ export function CompareView({ rows }: { rows: CompareRow[] }) {
             <th className="w-16" />
             {picked.map((r) => (
               <th key={r.slug} className="px-1 pb-3 align-top font-normal">
-                <Link href={`/rooms/${r.slug}/`} className="flex flex-col gap-1.5">
+                <Link href={`/rooms/${r.slug}`} className="flex flex-col gap-1.5">
                   <div className="aspect-[4/5] overflow-hidden rounded-xl bg-band">{r.thumb}</div>
                   <b className="font-display text-base">{r.name}</b>
                 </Link>

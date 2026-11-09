@@ -10,7 +10,7 @@ const data = getSiteData();
 export const metadata = pageMeta(data, {
   title: '선셋코스트 이야기',
   description: '제주 서귀포 영락리, 남방큰돌고래가 사는 바다 앞 카라반 캠핑장. 돌고래 이름을 단 에어스트림과 쉬는 방법을 담은 스페이스카라반 이야기.',
-  path: '/about/',
+  path: '/about',
   image: 'site/hero/hero-01',
 });
 
@@ -39,7 +39,7 @@ export default function AboutPage() {
           <ul className="flex flex-col">
             {airstreams.map((r) => (
               <li key={r.slug} className="border-b border-line py-3 text-sm">
-                <Link href={`/rooms/${r.slug}/`} className="font-display text-base font-bold">{r.name}</Link>
+                <Link href={`/rooms/${r.slug}`} className="font-display text-base font-bold">{r.name}</Link>
                 <p className="text-mute">{firstSentence(r.nameStory)}</p>
               </li>
             ))}
@@ -50,7 +50,7 @@ export default function AboutPage() {
           <ul className="flex flex-col">
             {premium.map((r) => (
               <li key={r.slug} className="border-b border-line py-3 text-sm">
-                <Link href={`/rooms/${r.slug}/`} className="font-display text-base font-bold">{r.name}</Link>
+                <Link href={`/rooms/${r.slug}`} className="font-display text-base font-bold">{r.name}</Link>
                 <p className="text-mute">{firstSentence(r.nameStory)}</p>
               </li>
             ))}

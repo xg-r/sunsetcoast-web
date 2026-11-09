@@ -9,7 +9,7 @@ const data = getSiteData();
 export const metadata = pageMeta(data, {
   title: '예약 안내',
   description: '선셋코스트 예약 방법, 애견동반 요금과 규정, 추가 인원 요금, 이용·환불 규정, 워크숍·단체 전체 대관(최대 50명)과 자주 묻는 질문. 모든 카라반에 개별 화장실이 있어요.',
-  path: '/reservation/',
+  path: '/reservation',
 });
 
 export default function ReservationPage() {

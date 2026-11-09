@@ -8,16 +8,16 @@ import { BrandMark } from './BrandMark';
 import { Icon } from './Icon';
 
 /** 객실 상세는 화면 폭 전체 사진 위에 헤더를 투명하게 겹쳐 놓는다 */
-const OVERLAY = /^\/rooms\/(?!compare\/)[^/]+\/$/;
+const OVERLAY = /^\/rooms\/(?!compare$)[^/]+$/;
 
-// trailingSlash 설정과 관계없이 끝에 / 를 붙여 비교한다
-const withSlash = (p: string) => (p.endsWith('/') ? p : p + '/');
-const isCurrent = (path: string, href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+// 주소는 끝에 / 가 없다 (trailingSlash: false). 혹시 붙어 와도 떼고 비교한다
+const noSlash = (p: string) => (p.length > 1 && p.endsWith('/') ? p.slice(0, -1) : p);
+const isCurrent = (path: string, href: string) => path === href || (href !== '/' && path.startsWith(href + '/'));
 
 export type HeaderContact = { phone: string; phoneHours: string; instagram: string };
 
 export function SiteHeader({ contact }: { contact: HeaderContact }) {
-  const path = withSlash(usePathname());
+  const path = noSlash(usePathname());
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const overlay = OVERLAY.test(path) && !scrolled && !open;

@@ -8,7 +8,7 @@ const data = getSiteData();
 export const metadata = pageMeta(data, {
   title: '시설과 서비스',
   description: '제주 선셋코스트 캠핑장 시설. 카라반마다 개별 바베큐 데크, 투숙객 2시간 무료 브롬톤 자전거, 공용 샤워실·세탁실·취사장.',
-  path: '/facilities/',
+  path: '/facilities',
   image: 'site/facility/bbq-01',
 });
 

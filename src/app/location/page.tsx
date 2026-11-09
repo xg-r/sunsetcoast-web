@@ -9,7 +9,7 @@ const data = getSiteData();
 export const metadata = pageMeta(data, {
   title: '오시는 길',
   description: `${data.settings.address}. 제주 서남부 노을해안로, 돌고래가 나타나는 해변까지 걸어서 1분. 모슬포·송악산·산방산 등 주변 여행지 ${data.tours.length}곳.`,
-  path: '/location/',
+  path: '/location',
 });
 
 export default function LocationPage() {

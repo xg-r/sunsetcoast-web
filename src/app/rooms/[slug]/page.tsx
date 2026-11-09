@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   // 제목: "제돌이 · 애견동반 에어스트림", 설명: 지역 키워드로 시작
   const title = `${room.name} · ${room.petsAllowed ? '애견동반 ' : ''}${tier?.name ?? '카라반'}`;
   const description = `제주 서귀포 바다 앞 ${tier?.name ?? '카라반'} ${room.name}. ${room.copy}. ${facts}`;
-  return pageMeta(data, { title, description, path: `/rooms/${room.slug}/`, image: coverOf(room) ?? undefined });
+  return pageMeta(data, { title, description, path: `/rooms/${room.slug}`, image: coverOf(room) ?? undefined });
 }
 
 export default async function RoomPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -60,7 +60,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbJsonLd(data, [{ name: '객실', path: '/rooms/' }, { name: room.name, path: `/rooms/${room.slug}/` }]))} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbJsonLd(data, [{ name: '객실', path: '/rooms' }, { name: room.name, path: `/rooms/${room.slug}` }]))} />
       {/* 1. 대표 사진 (화면 폭 전체, 헤더가 위에 겹침) */}
       <section className="relative -mt-[calc(3.5rem+env(safe-area-inset-top,0px))] aspect-[4/5] max-h-[78vh] w-full overflow-hidden bg-band md:aspect-[21/9]">
         {cover && <Photo k={cover} alt={`${room.name} 대표 사진`} priority sizes="100vw" />}
@@ -185,7 +185,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
               </li>
             )}
           </ul>
-          <Link href="/reservation/" className="flex items-center gap-1 self-start text-sm font-medium text-coral">
+          <Link href="/reservation" className="flex items-center gap-1 self-start text-sm font-medium text-coral">
             이용 규정과 환불 규정 <Icon name="next" className="size-4" />
           </Link>
         </section>

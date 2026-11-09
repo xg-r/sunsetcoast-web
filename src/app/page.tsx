@@ -57,7 +57,7 @@ export default function HomePage() {
                 {p.label}
               </a>
             ))}
-            <Link href="/rooms/?pet=1" className="btn btn-ghost">
+            <Link href="/rooms?pet=1" className="btn btn-ghost">
               <Icon name="paw" className="size-4 text-coral" />
               반려견 동반 객실
             </Link>
@@ -115,7 +115,7 @@ export default function HomePage() {
             const list = visible.filter((r) => r.tierKey === t.key);
             const price = tierFromPrice(data, t.key);
             return (
-              <Link key={t.key} href={`/rooms/?tier=${t.key}`} className="group flex flex-col gap-3">
+              <Link key={t.key} href={`/rooms?tier=${t.key}`} className="group flex flex-col gap-3">
                 <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-band md:aspect-[3/4]">
                   <Photo k={t.coverImage} alt={`${t.name} 객실`} sizes="(min-width:768px) 33vw, 100vw" className="transition-transform duration-500 group-hover:scale-[1.03]" />
                 </div>
@@ -149,7 +149,7 @@ export default function HomePage() {
             const tier = tiers.find((t) => t.key === r.tierKey);
             return (
               <li key={r.slug} className="w-[44%] shrink-0 snap-start sm:w-[30%] md:w-auto">
-                <Link href={`/rooms/${r.slug}/`} className="group flex flex-col gap-2">
+                <Link href={`/rooms/${r.slug}`} className="group flex flex-col gap-2">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-3xl bg-band">
                     {cover && <Photo k={cover} alt={`${r.name} 대표 사진`} sizes="(min-width:1024px) 16vw, (min-width:768px) 30vw, 44vw" className="transition-transform duration-500 group-hover:scale-[1.04]" />}
                     <span className="chip chip-key absolute left-2.5 top-2.5 !py-0.5">
@@ -177,7 +177,7 @@ export default function HomePage() {
               ))}
             </dl>
             <div className="flex gap-2">
-              <Link href="/rooms/?pet=1" className="btn btn-primary flex-1 md:flex-none">반려견 객실 보기</Link>
+              <Link href="/rooms?pet=1" className="btn btn-primary flex-1 md:flex-none">반려견 객실 보기</Link>
               <Link href="/reservation/#pet" className="btn btn-ghost flex-1 md:flex-none">동반 규정</Link>
             </div>
           </div>
@@ -210,7 +210,7 @@ export default function HomePage() {
             <p className="text-[13.5px] text-mute">{season.card.body}</p>
           </div>
         )}
-        <Link href="/facilities/" className="flex items-center gap-1 self-start text-sm font-medium text-coral">
+        <Link href="/facilities" className="flex items-center gap-1 self-start text-sm font-medium text-coral">
           시설과 서비스 자세히 <Icon name="next" className="size-4" />
         </Link>
       </section>
@@ -229,7 +229,7 @@ export default function HomePage() {
           <ul className="flex flex-col">
             {airstreams.map((r) => (
               <li key={r.slug} className="border-b border-line">
-                <Link href={`/rooms/${r.slug}/`} className="flex gap-4 py-3 text-sm">
+                <Link href={`/rooms/${r.slug}`} className="flex gap-4 py-3 text-sm">
                   <b className="w-14 shrink-0 font-display text-base">{r.name}</b>
                   <span className="text-mute">{firstSentence(r.nameStory)}</span>
                 </Link>
@@ -262,9 +262,9 @@ export default function HomePage() {
         <h2 className="h2">누구와 함께 오세요?</h2>
         <div className="grid grid-cols-3 gap-2 md:max-w-2xl">
           {[
-            ['paw', '반려견과', `${petRooms.length}동 가능`, '/rooms/?pet=1'],
-            ['heart', '둘이서', '2명 객실', '/rooms/?guests=2'],
-            ['child', '아이와 함께', '3~4명 객실', '/rooms/?guests=3-4'],
+            ['paw', '반려견과', `${petRooms.length}동 가능`, '/rooms?pet=1'],
+            ['heart', '둘이서', '2명 객실', '/rooms?guests=2'],
+            ['child', '아이와 함께', '3~4명 객실', '/rooms?guests=3-4'],
           ].map(([icon, title, sub, href]) => (
             <Link key={title} href={href} className="card flex flex-col items-center gap-1.5 px-1 py-5 text-center text-sm transition-colors hover:border-peach">
               <Icon name={icon} className="size-6 text-coral" />
@@ -312,7 +312,7 @@ export default function HomePage() {
           <p className="text-[13.5px] text-mute">
             예약·문의 <a href={`tel:${s.phone.replaceAll('-', '')}`} className="text-ink underline underline-offset-2" data-track="call_click" data-placement="home_location">{s.phone}</a> ({s.phoneHours})
           </p>
-          <Link href="/location/" className="flex items-center gap-1 self-start text-sm font-medium text-coral">
+          <Link href="/location" className="flex items-center gap-1 self-start text-sm font-medium text-coral">
             길찾기와 주변 여행지 <Icon name="next" className="size-4" />
           </Link>
         </div>
