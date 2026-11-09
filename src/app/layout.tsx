@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           본문으로 건너뛰기
         </a>
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(websiteJsonLd(getSiteData()))} />
-        <SiteHeader />
+        <SiteHeader contact={{ phone: settings.phone, phoneHours: settings.phoneHours, instagram: settings.instagram }} />
         <main id="main" className="pb-24">{children}</main>
         <SiteFooter />
         <Analytics gaId={process.env.NEXT_PUBLIC_GA_ID || null} host={process.env.NEXT_PUBLIC_GA_HOST || null} />
