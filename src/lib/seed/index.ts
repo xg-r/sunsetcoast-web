@@ -159,7 +159,7 @@ export const SEED: Omit<SiteData, 'rooms'> & { rooms: RoomSeed[] } = {
     owner: '김태현',
     businessNo: '278-27-01574',
     phone: '010-4741-7064',
-    phoneHours: '오전 9시~오후 9시',
+    phoneHours: '오전 9시~오후 8시',
     bankAccount: { bank: 'IBK기업은행', number: '239-145391-04-017', holder: '선셋코스트 카라반&캠핑장' },
     instagram: 'sunsetcoast_jeju',
     naverPlaceId: '1203944529',
